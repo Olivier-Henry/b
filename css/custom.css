@@ -1,0 +1,260 @@
+body{
+    position: relative;
+    width: 100%;
+}
+
+header{
+    position: absolute;
+    width: 100%;
+}
+
+.logo{
+    border: 1px solid rgba(0,0,0,0.87);
+    padding-right: 5em;
+    padding-bottom: 5em;
+    border-radius: 0 0 100% 0;
+    background: black;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+}
+
+.logo .backgound-menu{
+    width: 100%;
+    height: 100%;
+    position:absolute;
+    z-index:1;
+    border-radius: 0 0 100% 0;
+    background: inherit;
+    top: 0;
+    left: 0;
+
+}
+
+.logo img{
+    width:15em;
+    z-index: 2;
+}
+
+.logo div md-icon{
+    position:relative;
+    color: white;
+    font-size: 36px;
+    z-index: 2;
+}
+
+
+.logo button.calendar{
+    position: absolute;
+    left: calc(100% - 37px);
+    top: 0;
+}
+.logo button.contact{
+    position: absolute;
+    left: calc(72% - 37px);
+    top: calc(72% - 37px);
+}
+.logo button.designing{
+    position: absolute;
+    left: 0;
+    top: calc(100% - 37px);
+}
+
+.animate-show-calendar { 
+    -webkit-animation: show-calendar 700ms cubic-bezier(0.445, 0.050, 0.550, 0.950);
+    animation: show-calendar 700ms cubic-bezier(0.445, 0.050, 0.550, 0.950);
+} 
+@-webkit-keyframes show-calendar {
+    from {
+        left: 0px;
+        z-index: 0;
+    }
+    75% {
+        left: 100%;
+    }
+    to {  
+        left: calc(100% - 37px);
+        z-index: 2;
+    }
+}
+@keyframes show-calendar {
+    from {
+        left: 0px;
+        z-index: 0;
+    }
+    75% {
+        left: 100%;
+
+    }
+    to {  
+        left: calc(100% - 37px);
+        z-index: 2;
+    }
+}
+
+.animate-show-calendar.ng-hide { 
+    -webkit-animation: leave-calendar 700ms cubic-bezier(0.445, 0.050, 0.550, 0.950);
+    animation: leave-calendar 700ms cubic-bezier(0.445, 0.050, 0.550, 0.950);
+} 
+@-webkit-keyframes leave-calendar {
+    from {
+        left: calc(100% - 37px);
+    }
+    25% {
+        left: 100%;
+        z-index: 0;
+    }
+    to {
+        z-index: 0;
+        left: 0px;
+    }
+}
+@keyframes leave-calendar {
+    from {
+        left: calc(100% - 37px);
+    }
+    25% {
+        left: 100%;
+        z-index: 0;
+    }
+    to {
+        z-index: 0;
+        left: 0px;
+    }
+} 
+.animate-show-designing{ 
+    -webkit-animation: show-designing 700ms cubic-bezier(0.445, 0.050, 0.550, 0.950);
+    animation: show-designing 700ms cubic-bezier(0.445, 0.050, 0.550, 0.950);
+} 
+@-webkit-keyframes show-designing {
+    from {
+        top: 0px;
+        z-index: 0;
+    }
+    75% {
+        top: 100%;
+    }
+    to {  
+        top: calc(100% - 37px);
+        z-index: 2;
+    }
+}
+@keyframes show-designing {
+    from {
+        top: 0px;
+        z-index: 0;
+    }
+    75% {
+        top: 100%;
+
+    }
+    to {  
+        top: calc(100% - 37px);
+        z-index: 2;
+    }
+}
+
+.animate-show-designing.ng-hide { 
+    -webkit-animation: leave-designing 700ms cubic-bezier(0.445, 0.050, 0.550, 0.950);
+    animation: leave-designing 700ms cubic-bezier(0.445, 0.050, 0.550, 0.950);
+} 
+@-webkit-keyframes leave-designing {
+    from {
+        top: calc(100% - 37px);
+    }
+    25% {
+        top: 100%;
+        z-index: 0;
+    }
+    to {
+        z-index: 0;
+        top: 0px;
+    }
+}
+@keyframes leave-designing {
+    from {
+        top: calc(100% - 37px);
+    }
+    25% {
+        top: 100%;
+        z-index: 0;
+    }
+    to {
+        z-index: 0;
+        top: 0px;
+    }
+} 
+
+.animate-show-contact { 
+    -webkit-animation: show-contact 700ms cubic-bezier(0.445, 0.050, 0.550, 0.950);
+    animation: show-contact 700ms cubic-bezier(0.445, 0.050, 0.550, 0.950);
+} 
+@-webkit-keyframes show-contact {
+    from {
+        left: 0px;
+        top: 0px;
+        z-index: 0;
+    }
+    75% {
+        left: 72%;
+        top: 72%
+    }
+    to {  
+        left: calc(72% - 37px);
+        top: calc(72% - 37px);
+        z-index: 2;
+    }
+}
+@keyframes show-contact {
+    from {
+        left: 0px;
+        top: 0px;
+        z-index: 0;
+    }
+    75% {
+        left: 72%;
+        top: 72%
+    }
+    to {  
+        left: calc(72% - 37px);
+        top: calc(72% - 37px);
+        z-index: 2;
+    }
+}
+
+.animate-show-contact.ng-hide { 
+    -webkit-animation: leave-contact 700ms cubic-bezier(0.445, 0.050, 0.550, 0.950);
+    animation: leave-contact 700ms cubic-bezier(0.445, 0.050, 0.550, 0.950);
+} 
+@-webkit-keyframes leave-contact {
+    from {
+        left: calc(72% - 37px);
+        top: calc(72% - 37px);
+    }
+    25% {
+        left: 72%;
+        top: 72%;
+        z-index: 0;
+    }
+    to {
+        z-index: 0;
+        left: 0px;
+        top:0px;
+    }
+}
+@keyframes leave-contact {
+   from {
+        left: calc(72% - 37px);
+        top: calc(72% - 37px);
+    }
+    25% {
+        left: 72%;
+        top: 72%;
+        z-index: 0;
+    }
+    to {
+        z-index: 0;
+        left: 0px;
+        top:0px;
+    }
+} 
