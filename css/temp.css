@@ -1,53 +1,53 @@
-.animate-show-home { 
-    -webkit-animation: show-home 700ms cubic-bezier(0.445, 0.050, 0.550, 0.950);
-    animation: show-home 700ms cubic-bezier(0.445, 0.050, 0.550, 0.950);
+.animate-show-article { 
+    -webkit-animation: show-article 700ms cubic-bezier(0.445, 0.050, 0.550, 0.950);
+    animation: show-article 700ms cubic-bezier(0.445, 0.050, 0.550, 0.950);
 } 
-@-webkit-keyframes show-home {
+@-webkit-keyframes show-article {
     from {
         left: 0px;
         top: 0px;
         z-index: 0;
     }
     75% {
-        left: 90%;
-        top: 45%
+        left: 45%;
+        top: 90%
     }
     to {  
-        left: calc(90% - 37px);
-        top: calc(45% - 37px);
+        left: calc(45% - 37px);
+        top: calc(90% - 37px);
         z-index: 2;
     }
 }
-@keyframes show-home {
-     from {
+@keyframes show-article {
+    from {
         left: 0px;
         top: 0px;
         z-index: 0;
     }
     75% {
-        left: 90%;
-        top: 45%
+        left: 45%;
+        top: 90%
     }
     to {  
-        left: calc(90% - 37px);
-        top: calc(45% - 37px);
+        left: calc(45% - 37px);
+        top: calc(90% - 37px);
         z-index: 2;
     }
 
 }
 
-.animate-show-home.ng-hide { 
-    -webkit-animation: leave-home 700ms cubic-bezier(0.445, 0.050, 0.550, 0.950);
-    animation: leave-home 700ms cubic-bezier(0.445, 0.050, 0.550, 0.950);
+.animate-show-article.ng-hide { 
+    -webkit-animation: leave-article 700ms cubic-bezier(0.445, 0.050, 0.550, 0.950);
+    animation: leave-article 700ms cubic-bezier(0.445, 0.050, 0.550, 0.950);
 } 
-@-webkit-keyframes leave-home {
+@-webkit-keyframes leave-article {
     from {
-        left: calc(90% - 37px);
-        top: calc(45% - 37px);
+        left: calc(45% - 37px);
+        top: calc(90% - 37px);
     }
     25% {
-        left: 90%;
-        top: 45%;
+        left: 45%;
+        top: 90%;
         z-index: 0;
     }
     to {
@@ -56,14 +56,14 @@
         top:0px;
     }
 }
-@keyframes leave-home {
-     from {
-        left: calc(90% - 37px);
-        top: calc(45% - 37px);
+@keyframes leave-article {
+    from {
+        left: calc(45% - 37px);
+        top: calc(90% - 37px);
     }
     25% {
-        left: 90%;
-        top: 45%;
+        left: 45%;
+        top: 90%;
         z-index: 0;
     }
     to {

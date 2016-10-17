@@ -64,6 +64,11 @@ header{
     left: calc(90% - 37px);
     top: calc(45% - 37px);
 }
+.logo button.article{
+    position: absolute;
+    left: calc(45% - 37px);
+    top: calc(90% - 37px);
+}
 
 .animate-show-calendar { 
     -webkit-animation: show-calendar 700ms cubic-bezier(0.445, 0.050, 0.550, 0.950);
@@ -330,6 +335,81 @@ header{
     25% {
         left: 90%;
         top: 45%;
+        z-index: 0;
+    }
+    to {
+        z-index: 0;
+        left: 0px;
+        top:0px;
+    }
+} 
+
+.animate-show-article { 
+    -webkit-animation: show-article 700ms cubic-bezier(0.445, 0.050, 0.550, 0.950);
+    animation: show-article 700ms cubic-bezier(0.445, 0.050, 0.550, 0.950);
+} 
+@-webkit-keyframes show-article {
+    from {
+        left: 0px;
+        top: 0px;
+        z-index: 0;
+    }
+    75% {
+        left: 45%;
+        top: 90%
+    }
+    to {  
+        left: calc(45% - 37px);
+        top: calc(90% - 37px);
+        z-index: 2;
+    }
+}
+@keyframes show-article {
+    from {
+        left: 0px;
+        top: 0px;
+        z-index: 0;
+    }
+    75% {
+        left: 45%;
+        top: 90%
+    }
+    to {  
+        left: calc(45% - 37px);
+        top: calc(90% - 37px);
+        z-index: 2;
+    }
+
+}
+
+.animate-show-article.ng-hide { 
+    -webkit-animation: leave-article 700ms cubic-bezier(0.445, 0.050, 0.550, 0.950);
+    animation: leave-article 700ms cubic-bezier(0.445, 0.050, 0.550, 0.950);
+} 
+@-webkit-keyframes leave-article {
+    from {
+        left: calc(45% - 37px);
+        top: calc(90% - 37px);
+    }
+    25% {
+        left: 45%;
+        top: 90%;
+        z-index: 0;
+    }
+    to {
+        z-index: 0;
+        left: 0px;
+        top:0px;
+    }
+}
+@keyframes leave-article {
+    from {
+        left: calc(45% - 37px);
+        top: calc(90% - 37px);
+    }
+    25% {
+        left: 45%;
+        top: 90%;
         z-index: 0;
     }
     to {
