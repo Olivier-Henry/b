@@ -12,6 +12,10 @@ app.directive('animationend', function() {
 			element.on(events, function(event) {
 				callback.call(element[0], event);
 			});
+			
+                        element.on(events, function(event) {
+				callback.call(element[0], event);
+			});
 		}
 	};
 });
