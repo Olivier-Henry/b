@@ -11,12 +11,12 @@
     <body ng-app="ngApp" ng-cloak layout="row"> 
 
         <header layout="row" layout-align="space-between start" ng-controller="headerController">
-            <div class="logo" layout="column" layout-align="center center" ng-mouseover="entered = true" ng-mouseleave="entered = false">
+            <div class="logo" id="logo-anim" layout="column" layout-align="center center" ng-mouseover="entered = true" ng-mouseleave="entered = false">
                 <img src="images/logo.jpg" alt="Logo biscoto, meubles en carton"/>
                 <div>
                     <md-icon md-font-library="material-icons">menu</md-icon>
                 </div>
-                <md-button class="md-fab md-primary animate-show-calendar calendar" aria-label="Evénements" ng-show="entered">
+                <md-button class="md-fab md-primary animate-show-calendar calendar" animationend="endAnimateCalendar" aria-label="Evénements" ng-show="entered">
                     <md-icon md-font-library="material-icons">event</md-icon>
                     <md-tooltip  md-direction="right">
                         Evénements
@@ -75,6 +75,9 @@
         <!-- Angular Material Library -->
         <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
         <script src="js/app.js"></script>
+        <script src="js/animation/animation.js"></script>
+        <script src="js/directives/animationEnd.js"></script>
         <script src="js/controllers/headerController.js"></script>
+
     </body>
 </html>

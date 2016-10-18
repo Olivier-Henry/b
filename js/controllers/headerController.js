@@ -1,6 +1,16 @@
-app.controller('headerController', function($scope){
-   
+app.controller('headerController', function ($scope, $animate) {
+
     $scope.entered = false;
-    
+
+    $scope.endAnimateCalendar = function (event) {
+        $scope.animateCalendar = event.animationName == 'calendar' ? 'show' : 'hide';
+        $scope.$apply();
+        console.log('hey');
+    };
+
+//   $animate.addClass(angular.element(document).find('.animate-show-calendar'), '.hide').then(function(){
+//        console.log('promise');
+//   });
+
 });
 
