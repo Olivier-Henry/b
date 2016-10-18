@@ -16,7 +16,7 @@
                 <div>
                     <md-icon md-font-library="material-icons">menu</md-icon>
                 </div>
-                <md-button class="md-fab md-primary animate-show-calendar calendar" animationend="endAnimateCalendar" aria-label="Evénements" ng-show="entered">
+                <md-button class="md-fab md-primary animate-show-calendar calendar" animationend="endAnimateCalendar" aria-label="Evénements" ng-show="(entered && !animateCalendar)">
                     <md-icon md-font-library="material-icons">event</md-icon>
                     <md-tooltip  md-direction="right">
                         Evénements

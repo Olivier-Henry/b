@@ -3,7 +3,7 @@ app.controller('headerController', function ($scope, $animate) {
     $scope.entered = false;
 
     $scope.endAnimateCalendar = function (event) {
-        $scope.animateCalendar = event.animationName == 'calendar' ? 'show' : 'hide';
+        $scope.animateCalendar = event.animationName == 'calendar' ? true : false;
         $scope.$apply();
         console.log('hey');
     };
