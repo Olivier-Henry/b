@@ -8,7 +8,7 @@
         <link rel="stylesheet" href="css/custom.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     </head>
-    <body ng-app="ngApp" ng-cloak layout="row"> 
+    <body ng-app="ngApp" ng-cloak layout="column"> 
 
         <header layout="row" layout-align="space-between start" ng-controller="headerController">
             <div class="logo" id="logo-anim" layout="column" layout-align="center center" ng-mouseover="entered = true" ng-mouseleave="entered = false">
@@ -66,7 +66,7 @@
         </header>
 
 
-        <div ng-view></div>
+        <div ng-view flex="100"></div>
         <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-route.js"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
