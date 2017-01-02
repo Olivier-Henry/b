@@ -1,19 +1,36 @@
 
 <div ng-controller="typeController">
     <md-content>
-        <md-toolbar class="md-hue-2">
-      <div class="md-toolbar-tools">
-        <h2>
-          <span>Toolbar with Disabled/Enabled Icon Buttons</span>
-        </h2>
-        <span flex></span>
-        <md-button class="md-primary md-raised" aria-label="Nouveau">
-          <md-icon>add</md-icon>
-          Nouveau
-        </md-button>
-    
-      </div>
-    </md-toolbar>
+        <md-toolbar class="md-accent md-hue-2">
+            <div class="md-toolbar-tools">
+                <h2>
+                    <span>Types de meubles</span>
+                </h2>
+                <span flex></span>
+                <md-button class="md-primary md-raised" aria-label="Nouveau" ng-click="add($event)">
+                    <md-icon>add</md-icon>
+                    Nouveau
+                </md-button>
+
+            </div>
+        </md-toolbar>
     </md-content>
+    <md-list>
+        <md-list-item ng-repeat="type in types">
+            <span>{{type.name}}</span>
+            <span flex></span>
+            <span>{{type.description}}</span>
+            <span flex></span>
+            <md-button class="md-warn md-raised" aria-label="Modifier" ng-click="edit(type)">
+                <md-icon>edit</md-icon>
+                Modifier
+            </md-button>
+            <md-button class="md-warn md-raised  md-hue-2" aria-label="Supprimer" ng-click="remove(type)">
+                <md-icon>delete</md-icon>
+                Supprimer
+            </md-button>
+        </md-list-item>
+    </md-list>
+
 
 </div>

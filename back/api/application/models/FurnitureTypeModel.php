@@ -13,8 +13,10 @@ class FurnitureTypeModel extends CI_Model {
     public $description;
 
     public function get($id = 0) {
+        
         $result = false;
         if (!$id) {
+           
             $result = $this->db->get($this->table);
         } else {
             $result = $this->db->get_where($this->table, array('id' => $id), 500, 0);
@@ -38,7 +40,7 @@ class FurnitureTypeModel extends CI_Model {
     }
 
     private function update() {
-        $this->db->update($this->table, $this);
+        $this->db->update($this->table, $this, array('id' => $this->id));
     }
     
     public function delete(){

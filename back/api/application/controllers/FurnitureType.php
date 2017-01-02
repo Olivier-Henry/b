@@ -20,25 +20,31 @@ class FurnitureType extends CI_Controller {
     }
 
     public function get($id = 0) {
-        return json_encode($this->furnituretypemodel->get(intval($id)));
+        echo json_encode($this->furnituretypemodel->get(intval($id)));
     }
 
     public function save() {
-       if($this->json){
-           $this->furnituretypemodel->id = $this->json->id;
-           $this->furnituretypemodel->name = $this->json->name;
-           $this->furnituretypemodel->description = $this->json->description;
-           return json_encode($this->furnituretypemodel->save());
-       }
+       
+        if ($this->json) {
+            
+            if(!isset($this->json->id)){
+                $this->json->id = 0;
+            }
+            
+            $this->furnituretypemodel->id = $this->json->id;
+            $this->furnituretypemodel->name = $this->json->name;
+            $this->furnituretypemodel->description = $this->json->description;
+            echo json_encode($this->furnituretypemodel->save());
+        }
     }
-    
-    public function delete(){
-        if($this->json){
-           $this->furnituretypemodel->id = $this->json->id;
-           $this->furnituretypemodel->name = $this->json->name;
-           $this->furnituretypemodel->description = $this->json->description;
-           return json_encode($this->furnituretypemodel->delete());
-       }
+
+    public function delete() {
+        if ($this->json) {
+            $this->furnituretypemodel->id = $this->json->id;
+            $this->furnituretypemodel->name = $this->json->name;
+            $this->furnituretypemodel->description = $this->json->description;
+            echo json_encode($this->furnituretypemodel->delete());
+        }
     }
 
 }
