@@ -14,7 +14,7 @@ app.config(function ($routeProvider) {
 app.config(function ($mdThemingProvider) {
 
     var customBackground = {
-        '50': '#000000',
+        '50': '#303030',
         '100': '#666666',
         '200': '#595959',
         '300': '#4d4d4d',
