@@ -1,5 +1,4 @@
-
-<div ng-controller="typeController" layout="column">
+<div ng-controller="finishController" layout="column">
     
         <md-toolbar class="md-accent md-hue-2">
             <div class="md-toolbar-tools">
@@ -7,7 +6,7 @@
                     <md-icon>menu</md-icon>
                 </md-button>
                 <h2>
-                    <span>Types de meubles</span>
+                    <span>Finitions</span>
                 </h2>
                 <span flex></span>
                 <md-button class="md-primary md-raised" aria-label="Nouveau" ng-click="add($event)">
@@ -20,10 +19,8 @@
 
     <md-content md-colors="{background: 'background-A100-0.1'}" flex layout-padding>
         <md-list md-whiteframe="2" md-colors="{background: 'background-A100-0.95'}">
-            <md-list-item ng-repeat="type in types" layout-padding>
-                <span>{{type.name}}</span>
-                <span flex></span>
-                <span>{{type.description}}</span>
+            <md-list-item ng-repeat="finish in finishs" layout-padding>
+                <span>{{finish.label}}</span>
                 <span flex></span>
                 <md-button class="md-primary md-raised md-fab md-mini" aria-label="Modifier" ng-click="edit(type)">
                     <md-icon>edit</md-icon>
@@ -35,3 +32,4 @@
         </md-list>
     </md-content>
 </div>
+
