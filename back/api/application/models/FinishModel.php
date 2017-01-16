@@ -12,7 +12,7 @@ class FinishModel extends AbstractModel {
     
     public function __construct() {
         parent::__construct();
-        $this->table = 'finish';
+        $this->table = 'furniture_finish';
     }
 
 }

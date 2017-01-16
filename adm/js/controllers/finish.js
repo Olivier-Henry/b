@@ -5,9 +5,9 @@ app.controller('finishController', function ($scope, finishFactory, dialogFactor
 
 
     $scope.refresh = function () {
-        $scope.types = finishFactory.getAll()
+        $scope.finishs = finishFactory.getAll()
                 .then(function (r) {
-                    $scope.types = r;
+                    $scope.finishs = r;
                 });
     };
 
