@@ -1,11 +1,12 @@
 <?php
 
+require_once __DIR__.'\AbstractModel.php';
 /**
  * Description of FurnitureType
  *
  * @author olivier
  */
-class FinishModel extends CI_Model {
+class FinishModel extends AbstractModel {
 
     public $label;
     
