@@ -32,7 +32,7 @@ class FurnitureType extends CI_Controller {
             }
             
             $this->furnituretypemodel->id = $this->json->id;
-            $this->furnituretypemodel->label = $this->json->name;
+            $this->furnituretypemodel->label = $this->json->label;
             echo json_encode($this->furnituretypemodel->save());
         }
     }
