@@ -10,8 +10,7 @@ class FurnitureTypeModel extends AbstractModel {
 
    
   //  public $id;
-    public $name;
-    public $description;
+    public $label;
     
     public function __construct() {
         parent::__construct();

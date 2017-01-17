@@ -1,6 +1,6 @@
 <?php
 
-require_once './AbstractModel.php';
+require_once __DIR__.'\AbstractModel.php';
 /**
  * Description of SubFurnitureType
  *
@@ -8,8 +8,7 @@ require_once './AbstractModel.php';
  */
 class SubFurnitureTypeModel extends AbstractModel{
     
-    public $name;
-    public $description;
+    public $label;
     
     public function __construct() {
         parent::__construct();

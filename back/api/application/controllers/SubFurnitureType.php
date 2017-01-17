@@ -33,8 +33,7 @@ class SubFurnitureType extends CI_Controller{
             }
             
             $this->subfurnituretypemodel->id = $this->json->id;
-            $this->subfurnituretypemodel->name = $this->json->name;
-            $this->subfurnituretypemodel->description = $this->json->description;
+            $this->subfurnituretypemodel->label = $this->json->label;
             echo json_encode($this->subfurnituretypemodel->save());
         }
     }
@@ -42,8 +41,7 @@ class SubFurnitureType extends CI_Controller{
     public function delete() {
         if ($this->json) {
             $this->subfurnituretypemodel->id = $this->json->id;
-            $this->subfurnituretypemodel->name = $this->json->name;
-            $this->subfurnituretypemodel->description = $this->json->description;
+            $this->subfurnituretypemodel->label = $this->json->label;
             echo json_encode($this->subfurnituretypemodel->delete());
         }
     }
