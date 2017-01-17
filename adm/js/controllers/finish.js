@@ -1,11 +1,12 @@
 
-app.controller('finishController', function ($scope, finishFactory, dialogFactory, $mdSidenav) {
+app.controller('finishController', function ($scope, finishFactory, dialogFactory, $mdSidenav, genericFactory) {
     $scope.finishs = [];
     $scope.current = {};
 
-
+    $scope.factory = genericFactory.create('finish');
+    
     $scope.refresh = function () {
-        $scope.finishs = finishFactory.getAll()
+        $scope.finishs = $scope.factory.getAll()
                 .then(function (r) {
                     $scope.finishs = r;
                 });
@@ -24,7 +25,7 @@ app.controller('finishController', function ($scope, finishFactory, dialogFactor
     };
 
     $scope.remove = function (ty) {
-        finishFactory.remove(ty)
+        $scope.factory.remove(ty)
                 .then(function (r) {
                     $scope.refresh();
                 });
@@ -32,7 +33,7 @@ app.controller('finishController', function ($scope, finishFactory, dialogFactor
 
 
     $scope.dialog = function (ev) {
-        dialogFactory.getDialog(ev, $scope, finishFactory, 'finishd');
+        dialogFactory.getDialog(ev, $scope, $scope.factory, 'finishd');
     };
 
     $scope.toggleNav = function () {
