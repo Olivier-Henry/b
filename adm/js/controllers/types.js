@@ -1,11 +1,12 @@
 
-app.controller('typeController', function ($scope, $mdDialog, typeFactory, $mdSidenav, dialogFactory) {
+app.controller('typeController', function ($scope, $mdDialog, genericFactory, $mdSidenav, dialogFactory) {
 
     $scope.types = [];
     $scope.current = {};
+    $scope.factory = genericFactory.create('furnituretype');
 
     $scope.refresh = function () {
-        $scope.types = typeFactory.getAll()
+        $scope.types = $scope.factory.getAll()
                 .then(function (r) {
                     $scope.types = r;
                 });
@@ -24,7 +25,7 @@ app.controller('typeController', function ($scope, $mdDialog, typeFactory, $mdSi
     };
 
     $scope.remove = function (ty) {
-        typeFactory.remove(ty)
+        $scope.factory.remove(ty)
                 .then(function (r) {
                     console.log(r);
                     $scope.refresh();
@@ -33,7 +34,7 @@ app.controller('typeController', function ($scope, $mdDialog, typeFactory, $mdSi
     };
 
     $scope.dialog = function (ev) {
-        dialogFactory.getDialog(ev, $scope, typeFactory, 'typed');
+        dialogFactory.getDialog(ev, $scope, $scope.factory, 'typed');
 
     };
     

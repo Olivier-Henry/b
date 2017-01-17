@@ -21,10 +21,9 @@
     <md-content md-colors="{background: 'background-A100-0.1'}" flex layout-padding>
         <md-list md-whiteframe="2" md-colors="{background: 'background-A100-0.95'}">
             <md-list-item ng-repeat="type in types" layout-padding>
-                <span>{{type.name}}</span>
+                <span>{{type.label}}</span>
                 <span flex></span>
-                <span>{{type.description}}</span>
-                <span flex></span>
+             
                 <md-button class="md-primary md-raised md-fab md-mini" aria-label="Modifier" ng-click="edit(type)">
                     <md-icon>edit</md-icon>
                 </md-button>

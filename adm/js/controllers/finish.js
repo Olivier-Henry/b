@@ -1,5 +1,5 @@
 
-app.controller('finishController', function ($scope, finishFactory, dialogFactory, $mdSidenav, genericFactory) {
+app.controller('finishController', function ($scope, dialogFactory, $mdSidenav, genericFactory) {
     $scope.finishs = [];
     $scope.current = {};
 
