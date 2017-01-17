@@ -1,7 +1,7 @@
 app.factory('genericFactory', function ($http) {
 
     return {
-        create: function (serviceName, $http) {
+        create: function (serviceName) {
             var factory = {
                 getOne: function (id) {
                     return $http.get('/b/back/api/index.php/' + serviceName + '/get/' + +id)
