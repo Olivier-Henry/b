@@ -15,7 +15,6 @@ class Furniture extends CI_Controller {
         $this->load->model('furnituremodel');
         $this->load->model('furnituretypemodel');
         $this->load->model('finishmodel');
-        $this->load->model('sizemodel');
     }
 
     public function index() {
@@ -30,7 +29,6 @@ class Furniture extends CI_Controller {
             for ($i = 0; $i < count($response); $i++) {
                 $response[$i]->type = intval($response[$i]->type_id) > 0 ? $this->furnituretypemodel->get($response[$i]->type_id) : null;
                 $response[$i]->finish = intval($response[$i]->finish_id) > 0 ? $this->finishmodel->get($response[$i]->finish_id) : null;
-                $response[$i]->size = intval($response[$i]->size_id) > 0 ? $this->sizemodel->get($response[$i]->size_id) : null;
             }
         }
 

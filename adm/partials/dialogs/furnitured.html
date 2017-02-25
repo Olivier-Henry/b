@@ -1,0 +1,33 @@
+<md-dialog aria-label="Ajouter une finition">
+    <form ng-cloak>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>Ajouter un meuble</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="cancel()">
+                    <md-icon>close</md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content>
+            <div class="md-dialog-content">
+                <div layout-gt-sm="row">
+                    <md-input-container class="md-block" flex-gt-sm>
+                        <label>Libellé</label>
+                        <input ng-model="current.label">
+                    </md-input-container>
+                </div>
+            </div>
+        </md-dialog-content>
+        <md-dialog-actions layout="row">
+
+            <span flex></span>
+            <md-button ng-click="cancel()">
+                Annuler
+            </md-button>
+            <md-button class="md-primary md-raised" ng-click="save()">
+                Sauvegarder
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>
