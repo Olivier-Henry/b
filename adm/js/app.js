@@ -5,7 +5,7 @@ var app = angular.module('ngAdmin', ['ngRoute', 'ngMaterial', 'ngAnimate']);
 app.config(function ($routeProvider) {
     $routeProvider
             .when('/types', {templateUrl: 'partials/types.html'})
-            .when('/subtypes', {templateUrl: 'partials/subtypes.html'})
+            .when('/subtypes', {templateUrl: 'partials/sub(types.html'})
             .when('/finishes', {templateUrl: 'partials/finish.html'})
             .otherwise({redirectTo: '/types'});
 });
