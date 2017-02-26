@@ -22,10 +22,10 @@
             <md-list-item ng-repeat="furniture in furnitures" layout-padding>
                 <span>{{furniture.label}}</span>
                 <span flex></span>
-                <md-button class="md-primary md-raised md-fab md-mini" aria-label="Modifier" ng-click="edit(finish)">
+                <md-button class="md-primary md-raised md-fab md-mini" aria-label="Modifier" ng-click="edit(furniture)">
                     <md-icon>edit</md-icon>
                 </md-button>
-                <md-button class="md-warn md-raised  md-fab md-mini md-hue-2" aria-label="Supprimer" ng-click="remove(finish)">
+                <md-button class="md-warn md-raised  md-fab md-mini md-hue-2" aria-label="Supprimer" ng-click="remove(furniture)">
                     <md-icon>delete</md-icon>
                 </md-button>
                 

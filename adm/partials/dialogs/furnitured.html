@@ -17,12 +17,12 @@
                             <div layout="row">
 
                                 <div flex>
-                                    <md-select ng-model="selectedType" ng-model-options="{trackBy: '$value.id'}" placeholder="Type">
+                                    <md-select ng-model="current.type" ng-model-options="{trackBy: '$value.id'}" placeholder="Type">
                                         <md-option ng-value="type" ng-repeat="type in types">{{ type.label}}</md-option>
                                     </md-select>
                                 </div>
                                 <div flex>
-                                    <md-select ng-model="selectedFinish" ng-model-options="{trackBy: '$value.id'}" placeholder="Finition">
+                                    <md-select ng-model="current.finish" ng-model-options="{trackBy: '$value.id'}" placeholder="Finition">
                                         <md-option ng-value="finish" ng-repeat="finish in finishs">{{ finish.label}}</md-option>
                                     </md-select>
                                 </div>
