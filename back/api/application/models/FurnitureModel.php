@@ -19,6 +19,7 @@ class FurnitureModel extends AbstractModel {
     public $depth;
     public $label;
     public $description;
+    public $delay;
     
 
     public function __construct() {

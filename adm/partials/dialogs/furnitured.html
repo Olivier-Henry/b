@@ -1,4 +1,4 @@
-<md-dialog aria-label="Ajouter une finition" class="full-screen">
+<md-dialog aria-label="Ajouter une finition">
     <form ng-cloak>
         <md-toolbar>
             <div class="md-toolbar-tools">
@@ -12,31 +12,21 @@
         <md-dialog-content>
             <div class="md-dialog-content">
                 <div layout="row">
-                    <div layout="row" flex="66">
+                    <div layout="row" flex="50">
                         <div layout="column" flex>
                             <div layout="row">
+
                                 <div flex>
-                                    <md-input-container class="md-block" flex-gt-sm>
-                                        <label>Libellé</label>
-                                        <input ng-model="current.label">
-                                    </md-input-container>
-                                </div>
-                                <div flex>
-                                    <md-select ng-model="selectedType" ng-model-options="{trackBy: '$value.id'}" placeholder="Choisir un type">
+                                    <md-select ng-model="selectedType" ng-model-options="{trackBy: '$value.id'}" placeholder="Type">
                                         <md-option ng-value="type" ng-repeat="type in types">{{ type.label}}</md-option>
                                     </md-select>
                                 </div>
                                 <div flex>
-                                    <md-select ng-model="selectedFinish" ng-model-options="{trackBy: '$value.id'}" placeholder="Choisir une finition">
+                                    <md-select ng-model="selectedFinish" ng-model-options="{trackBy: '$value.id'}" placeholder="Finition">
                                         <md-option ng-value="finish" ng-repeat="finish in finishs">{{ finish.label}}</md-option>
                                     </md-select>
                                 </div>
-                                <div flex>
-                                    <md-input-container class="md-block" flex-gt-sm>
-                                        <label>Stock</label>
-                                        <input ng-model="current.stock">
-                                    </md-input-container>
-                                </div>
+
                             </div>
                             <div layout="row">
                                 <div flex>
@@ -57,26 +47,50 @@
                                         <input ng-model="current.depth">
                                     </md-input-container>
                                 </div>
-                                <div flex layout="row" layout-align="center center">
-                                    <md-switch  class="md-primary" ng-model="current.is_public" aria-label="Publier">
-                                        Publier
-                                    </md-switch>
+
+                            </div>
+                            <div layout="row">
+                                <div flex>
+                                    <md-input-container class="md-block" flex-gt-sm>
+                                        <label>Stock</label>
+                                        <input ng-model="current.stock">
+                                    </md-input-container>
+                                </div>
+                                <div flex>
+                                    <md-input-container class="md-block" flex-gt-sm>
+                                        <label>Prix</label>
+                                        <input ng-model="current.price">
+                                    </md-input-container>
+                                </div>
+                                <div flex>
+                                    <md-input-container class="md-block" flex-gt-sm>
+                                        <label>Délai</label>
+                                        <input ng-model="current.delay">
+                                    </md-input-container>
                                 </div>
                             </div>
 
-                            <div layout="row">
-                                <md-input-container class="md-block" flex-gt-sm>
-                                    <label>Description</label>
-                                    <textarea ng-model="current.description" md-maxlength="150" rows="5" md-select-on-focus></textarea>
-                                </md-input-container>
-                            </div>
                         </div>
+                    </div>
+                    <div layout="column" flex layout-margin="0">
+
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <label>Libellé</label>
+                            <input ng-model="current.label">
+                        </md-input-container>
+
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <label>Description</label>
+                            <textarea ng-model="current.description" md-maxlength="1000" rows="5" md-select-on-focus></textarea>
+                        </md-input-container>
                     </div>
                 </div>
             </div>
         </md-dialog-content>
         <md-dialog-actions layout="row">
-
+            <md-switch  class="md-primary" ng-model="current.is_public" aria-label="Publier">
+                Publier
+            </md-switch>
             <span flex></span>
             <md-button ng-click="cancel()">
                 Annuler
