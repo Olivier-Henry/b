@@ -1,6 +1,6 @@
 
 
-var app = angular.module('ngAdmin', ['ngRoute', 'ngMaterial', 'ngAnimate']);
+var app = angular.module('ngAdmin', ['ngRoute', 'ngMaterial', 'ngAnimate', 'angularFileUpload']);
 
 app.config(function ($routeProvider) {
     $routeProvider
