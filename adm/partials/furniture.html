@@ -26,14 +26,17 @@
                     </md-card-title-text>
                 </md-card-title>
                 <img ng-hide="furniture.pictures.length" ng-src="../images/logo.jpg" class="md-card-image" alt="Washed Out">
+                <image-slider ng-show="furniture.pictures.length" pictures="furniture.pictures" class="md-card-image"></image-slider>
+                <!--       
                 <ul ng-show="furniture.pictures.length">
                     <li ng-repeat="picture in furniture.pictures">
                         <img ng-src="../images/products/{{furniture.id}}/{{picture.name}}" class="md-card-image">
                     </li>
                 </ul>
-                 <md-card-actions layout="row" layout-align="end center">
-                     <input id="upload{{$index}}" nv-file-select uploader="uploader" type="file" options="setUploadingPath(furniture)" class="ng-hide" multiple>
-                    <md-button class="md-primary md-icon-button" aria-label="Modifier" ng-click="addImages(furniture,$index)">
+                -->
+                <md-card-actions layout="row" layout-align="end center">
+                    <input id="upload{{$index}}" nv-file-select uploader="uploader" type="file" options="setUploadingPath(furniture)" class="ng-hide" multiple>
+                    <md-button class="md-primary md-icon-button" aria-label="Modifier" ng-click="addImages(furniture, $index)">
                         <md-icon>add_to_photos</md-icon>
                     </md-button>
                     <md-button class="md-primary md-icon-button" aria-label="Modifier" ng-click="edit(furniture)">
@@ -46,7 +49,7 @@
                 <md-card-content>
                     <p ng-bind="furniture.description | crop : 150"></p>
                 </md-card-content>
-               
+
             </md-card> 
         </div>
     </md-content>
