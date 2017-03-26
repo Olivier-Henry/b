@@ -42,9 +42,9 @@ class Image extends CI_Controller {
             $this->imagemodel->id = 0;
             $this->imagemodel->name = $upload_details["file_name"];
             $this->imagemodel->furniture_id = intval($id);
-            $this->imagemodel->save();
-
-            $json = array('success' => true, 'message' => 'File transfer completed', 'newfilename' => $upload_details['file_name']);
+            $this->imagemodel->id = $this->imagemodel->save();
+            
+            $json = $this->imagemodel;
         }
 
         echo json_encode($json);
