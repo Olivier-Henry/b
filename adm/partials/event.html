@@ -1,0 +1,24 @@
+<div ng-controller="finishController" layout="column">
+    
+        <md-toolbar class="md-accent md-hue-2">
+            <div class="md-toolbar-tools">
+                <md-button class="md-primary md-raised md-fab md-mini" aria-label="Modifier" ng-click="toggleNav()">
+                    <md-icon>menu</md-icon>
+                </md-button>
+                <h2>
+                    <span>Evénements</span>
+                </h2>
+                <span flex></span>
+                <md-button class="md-primary md-raised" aria-label="Nouveau" ng-click="add($event)">
+                    <md-icon>add</md-icon>
+                    Nouveau
+                </md-button>
+
+            </div>
+        </md-toolbar>
+
+    <md-content md-colors="{background: 'background-A100-0.1'}" flex layout-padding>
+    </md-content>
+</div>
+
+

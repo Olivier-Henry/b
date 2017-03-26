@@ -8,6 +8,7 @@ app.config(function ($routeProvider) {
             .when('/subtypes', {templateUrl: 'partials/subtypes.html'})
             .when('/finishes', {templateUrl: 'partials/finish.html'})
             .when('/furniture', {templateUrl: 'partials/furniture.html'})
+            .when('/events', {templateUrl: 'partials/event.html'})
             .otherwise({redirectTo: '/types'});
 });
 
