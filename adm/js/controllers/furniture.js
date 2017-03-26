@@ -82,6 +82,7 @@ app.controller('furnitureController', function ($scope, $mdDialog, genericFactor
         url: '../back/api/index.php/image/save',
         autoUpload: true
     });
+    
 
 //    var uploader = $scope.uploader = new FileUploader(
 ////            {

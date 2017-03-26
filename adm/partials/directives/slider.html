@@ -1,3 +1,13 @@
-<div style="width:100%; height:30%; background-color: black;">
-<img ng-src="../images/products/{{furniture.id}}/{{picture.name}}" class="md-card-image">
-<div>
+<md-button ng-show="furniture.pictures.length > 1" class="md-primary md-icon-button slider-left" aria-label="Modifier" ng-click="left()">
+    <md-icon>keyboard_arrow_left</md-icon>
+</md-button>
+<md-button ng-show="furniture.pictures.length > 1" class="md-primary md-icon-button slider-right" aria-label="Modifier" ng-click="right()">
+    <md-icon>keyboard_arrow_right</md-icon>
+</md-button>
+<div ng-hide="furniture.pictures.length">
+    <img  ng-src="../images/logo.jpg"  alt="Washed Out">  
+</div>
+<div ng-repeat="picture in furniture.pictures track by $index">
+    <img  ng-src="../images/products/{{furniture.id}}/{{picture.name}}">
+</div>
+
