@@ -4,6 +4,12 @@
 <md-button ng-show="furniture.pictures.length > 1" class="md-primary md-icon-button slider-right" aria-label="Modifier" ng-click="right()">
     <md-icon>keyboard_arrow_right</md-icon>
 </md-button>
+
+<div class="slider-delete-wrapper">
+    <md-button ng-show="furniture.pictures.length" class="md-warn md-hue-2 md-icon-button slider-delete" aria-label="Supprimer l'image" ng-click="deletePicture()">
+        <md-icon>delete</md-icon>
+    </md-button>
+</div>
 <div ng-hide="furniture.pictures.length">
     <img  ng-src="../images/logo.jpg"  alt="Washed Out">  
 </div>

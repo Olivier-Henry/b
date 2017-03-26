@@ -17,12 +17,12 @@ class Image extends CI_Controller {
 
     public function save($id = 0) {
         $json = array();
-        
-        if ($id === 0){
+
+        if ($id === 0) {
             return false;
         }
-        
-        if(!is_dir('../../images/products/' . $id)){
+
+        if (!is_dir('../../images/products/' . $id)) {
             mkdir('../../images/products/' . $id);
         }
 
@@ -38,16 +38,33 @@ class Image extends CI_Controller {
             $json = array('error' => true, 'message' => $this->upload->display_errors());
         } else {
             $upload_details = $this->upload->data();
-            
+
             $this->imagemodel->id = 0;
             $this->imagemodel->name = $upload_details["file_name"];
             $this->imagemodel->furniture_id = intval($id);
             $this->imagemodel->save();
-            
+
             $json = array('success' => true, 'message' => 'File transfer completed', 'newfilename' => $upload_details['file_name']);
         }
 
-     echo json_encode($json);
+        echo json_encode($json);
+    }
+
+    public function delete() {
+        
+        if (intval($this->json->id) < 1) {
+            return false;
+        }
+ 
+        $file = '../../images/products/' . $this->json->id . '/' . $this->json->name;
+
+        if (is_file($file) && unlink($file)) {
+            $this->imagemodel->id = $this->json->id;
+            echo json_encode($this->imagemodel->delete());
+        }else{
+            echo false;
+        }
+        
     }
 
 }

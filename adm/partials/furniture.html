@@ -22,13 +22,10 @@
             md-cols-xs="1" md-cols-sm="3" md-cols-md="4" md-cols-lg="4" md-cols-xl="8" md-row-height="3:4" md-gutter="8px">
             <md-grid-tile ng-repeat="furniture in furnitures" ng-style="{'background': 'white'}">
                 <div layout="column" layout-fill>
-                    <md-card-title>
-                        <md-card-title-text>
-                            <span class="md-headline" ng-bind="furniture.label"></span>
-                        </md-card-title-text>
-                    </md-card-title>
-                      <image-slider furniture="furniture" flex="55"></image-slider>
-                      <md-card-actions layout="row" layout-align="end center">
+
+                    <image-slider furniture="furniture" flex="55"></image-slider>
+
+                    <md-card-actions layout="row" layout-align="end center" layout-margin>
                         <input id="upload{{$index}}" nv-file-select uploader="uploader" type="file" options="setUploadingPath(furniture)" class="ng-hide" multiple>
                         <md-button class="md-primary md-icon-button" aria-label="Modifier" ng-click="addImages(furniture, $index)">
                             <md-icon>add_to_photos</md-icon>
@@ -40,8 +37,9 @@
                             <md-icon>delete</md-icon>
                         </md-button>
                     </md-card-actions>
-                    <md-card-content>
-                        <p ng-bind="furniture.description | crop : 150"></p>
+                    <md-card-content layout-wrap>
+                        <h4  ng-bind="furniture.label" layout-margin></h4>
+                        <p ng-bind="furniture.description | crop : 150"  layout-margin></p>
                     </md-card-content>
                 </div>
             </md-grid-tile>

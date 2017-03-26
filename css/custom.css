@@ -114,6 +114,11 @@ image-slider .slider-right{
     right:0;
 }
 
+image-slider:hover .slider-delete-wrapper{
+    bottom: 0;
+    opacity: 1;
+}
+
 image-slider img{
     width:auto;
     height: auto;
@@ -121,7 +126,18 @@ image-slider img{
     max-height: 100%;
    
 }
-image-slider div{
+
+image-slider .slider-delete-wrapper{
+    position:absolute;
+    background-color: rgba(0, 0, 0, 0.5);;
+    width: 100%;
+    bottom: -40px;
+    opacity: 0;
+    transition: all 0.2s ease-in-out;
+    text-align: center;
+}
+
+image-slider div:not(.slider-delete-wrapper){
     width:100%;
     height: 100%;
     display: inline-block;
