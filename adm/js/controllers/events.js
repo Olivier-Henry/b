@@ -1,14 +1,14 @@
 
-app.controller('events', function($scope, genericFactory, dialogFactory,$mdSidenav){
+app.controller('eventController', function($scope, genericFactory, dialogFactory,$mdSidenav){
     $scope.events = [];
     $scope.current = {};
 
     $scope.factory = genericFactory.create('event');
     
     $scope.refresh = function () {
-        $scope.finishs = $scope.factory.getAll()
+        $scope.events = $scope.factory.getAll()
                 .then(function (r) {
-                    $scope.finishs = r;
+                    $scope.events = r;
                 });
     };
 
