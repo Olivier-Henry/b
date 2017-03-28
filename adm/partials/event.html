@@ -1,23 +1,38 @@
 <div ng-controller="eventController" layout="column">
-    
-        <md-toolbar class="md-accent md-hue-2">
-            <div class="md-toolbar-tools">
-                <md-button class="md-primary md-raised md-fab md-mini" aria-label="Modifier" ng-click="toggleNav()">
-                    <md-icon>menu</md-icon>
-                </md-button>
-                <h2>
-                    <span>Evénements</span>
-                </h2>
-                <span flex></span>
-                <md-button class="md-primary md-raised" aria-label="Nouveau" ng-click="add($event)">
-                    <md-icon>add</md-icon>
-                    Nouveau
-                </md-button>
 
-            </div>
-        </md-toolbar>
+    <md-toolbar class="md-accent md-hue-2">
+        <div class="md-toolbar-tools">
+            <md-button class="md-primary md-raised md-fab md-mini" aria-label="Modifier" ng-click="toggleNav()">
+                <md-icon>menu</md-icon>
+            </md-button>
+            <h2>
+                <span>Evénements</span>
+            </h2>
+            <span flex></span>
+            <md-button class="md-primary md-raised" aria-label="Nouveau" ng-click="add($event)">
+                <md-icon>add</md-icon>
+                Nouveau
+            </md-button>
+
+        </div>
+    </md-toolbar>
 
     <md-content md-colors="{background: 'background-A100-0.1'}" flex layout-padding>
+        <md-list md-whiteframe="2" md-colors="{background: 'background-A100-0.95'}">
+            <md-list-item ng-repeat="event in events" layout-padding>
+                <div flex="50">
+                    <p>current.label</p>
+                    <p>current.date_start</p>
+                    <p>current.date_end</p>
+                    <p>current.address_name</p>
+                    <p>current.address</p>
+                    <p>current.description</p>
+                </div>
+                <div flex>
+                    google Map
+                </div>
+            </md-list-item>
+        </md-list>
     </md-content>
 </div>
 
