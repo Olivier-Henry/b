@@ -9,6 +9,15 @@ app.controller('eventController', function($scope, genericFactory, dialogFactory
         $scope.events = $scope.factory.getAll()
                 .then(function (r) {
                     $scope.events = r;
+                    for(var i = 0; i< $scope.events.length; i++){
+                        $scope.events[i].map = {
+                          zoom: 14,
+                          center: {
+                              latitude: 45,
+                              longitude: -73
+                          }
+                        };
+                    }
                 });
     };
 

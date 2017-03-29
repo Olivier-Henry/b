@@ -14,8 +14,8 @@ app.config(function ($routeProvider) {
 
 app.config(function(uiGmapGoogleMapApiProvider) {
     uiGmapGoogleMapApiProvider.configure({
-        //    key: 'your api key',
-        v: '3.20', //defaults to latest 3.X anyhow
+        key:  'AIzaSyCKfQAdDdYjKypZH0PMT5nPAkMTdpF4vN0',
+     //   v: '3.20', //defaults to latest 3.X anyhow
         libraries: 'weather,geometry,visualization'
     });
 });
