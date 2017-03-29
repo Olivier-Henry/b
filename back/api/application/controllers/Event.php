@@ -16,7 +16,7 @@ class Event extends CI_Controller {
     }
 
     public function get($id = 0) {
-        
+        echo json_encode($this->eventmodel->get(intval($id)));
     }
 
     public function save() {

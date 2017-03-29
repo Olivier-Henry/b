@@ -21,12 +21,12 @@
         <md-list md-whiteframe="2" md-colors="{background: 'background-A100-0.95'}">
             <md-list-item ng-repeat="event in events" layout-padding>
                 <div flex="50">
-                    <p>current.label</p>
-                    <p>current.date_start</p>
-                    <p>current.date_end</p>
-                    <p>current.address_name</p>
-                    <p>current.address</p>
-                    <p>current.description</p>
+                    <p>{{event.label}}</p>
+                    <p>{{event.date_start}}</p>
+                    <p>{{event.date_end}}</p>
+                    <p>{{event.address_name}}</p>
+                    <p>{{event.address}}</p>
+                    <p>{{event.description}}</p>
                 </div>
                 <div flex>
                     google Map
