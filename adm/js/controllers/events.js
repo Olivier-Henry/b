@@ -1,5 +1,5 @@
 
-app.controller('eventController', function($scope, genericFactory, dialogFactory,GeocodeFactory, uiGmapGoogleMapApi, $mdSidenav){
+app.controller('eventController', function($scope, genericFactory, dialogFactory, GeocodeFactory, $mdSidenav){
     $scope.events = [];
     $scope.current = {};
 
@@ -49,8 +49,14 @@ app.controller('eventController', function($scope, genericFactory, dialogFactory
         $mdSidenav('left').toggle();
     };
     
-    uiGmapGoogleMapApi.then(function(){
-        GeocodeFactory.create();
-    });
+    $scope.getLocation = function(address){
+        var result = GeocodeFactory.query(address);
+           console.log(result);
+           return result;
+    };
+    
+//    uiGmapGoogleMapApi.then(function(){
+//       
+//    });
 });
 

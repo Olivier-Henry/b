@@ -1,4 +1,6 @@
 
+/* global google */
+
 app.factory('GeocodeFactory', function ($q) {
 
 

@@ -36,11 +36,33 @@
                         <input ng-model="current.address_name">
                     </md-input-container>
                 </div>
-                <div layout-gt-sm="row">
-                    <md-input-container class="md-block" flex-gt-sm>
+                <div layout-gt-sm="row"  geocode-input>
+                <!--    <md-input-container class="md-block" flex-gt-sm>
                         <label>Adresse</label>
-                        <input ng-model="current.address">
-                    </md-input-container>
+                        <input ng-model="current.address" geocode-input>
+                    </md-input-container> -->
+                    <md-autocomplete flex required
+                                     md-input-name="autocompleteField"
+                                     md-input-minlength="0"
+                                     md-input-maxlength="100"
+                                     md-no-cache="true"
+                                     md-selected-item="search"
+                                     md-search-text="current.address"
+                                     md-items="formatted_address in getLocation(current.address)"
+                                     md-item-text="current.address"
+                                     md-require-match
+                                     md-floating-label="Adresse"
+                                     ng-model="current.address">
+                        <md-item-template>
+                            <span md-highlight-text="current.address">{{item}}</span>
+                        </md-item-template>
+                        <div ng-messages="searchForm.autocompleteField.$error" ng-if="searchForm.autocompleteField.$touched">
+                            <div ng-message="required">You <b>must</b> have a favorite state.</div>
+                            <div ng-message="md-require-match">Please select an existing state.</div>
+                            <div ng-message="minlength">Your entry is not long enough.</div>
+                            <div ng-message="maxlength">Your entry is too long.</div>
+                        </div>
+                    </md-autocomplete>
                 </div>
                 <div layout-gt-sm="row">
                     <md-input-container class="md-block" flex-gt-sm>
