@@ -48,13 +48,13 @@
                                      md-no-cache="true"
                                      md-selected-item="search"
                                      md-search-text="current.address"
-                                     md-items="formatted_address in getLocation(current.address)"
+                                     md-items="item in getLocation(current.address)"
                                      md-item-text="current.address"
                                      md-require-match
                                      md-floating-label="Adresse"
                                      ng-model="current.address">
                         <md-item-template>
-                            <span md-highlight-text="current.address">{{item}}</span>
+                            <span md-highlight-text="current.address">{{item.formatted_address}}</span>
                         </md-item-template>
                         <div ng-messages="searchForm.autocompleteField.$error" ng-if="searchForm.autocompleteField.$touched">
                             <div ng-message="required">You <b>must</b> have a favorite state.</div>

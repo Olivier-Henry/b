@@ -8,14 +8,18 @@ app.factory('GeocodeFactory', function ($q) {
         geocoder: null,
         create: function () {
             this.geocoder = new google.maps.Geocoder();
-            console.log(this.geocoder);
+
         },
         query: function (address) {
 
             var defer = $q.defer();
-
             this.geocoder.geocode(
-                    {address: address},
+                    {
+                        componentRestrictions: {
+                            country: 'FR'
+                        },
+                        address: address
+                    },
             function (results, status) {
                 switch (status) {
                     case google.maps.GeocoderStatus.OK :
@@ -35,7 +39,7 @@ app.factory('GeocodeFactory', function ($q) {
                         break;
                 }
             });
-            
+
             return defer.promise;
         }
     };
