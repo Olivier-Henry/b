@@ -1,5 +1,5 @@
 
-app.controller('eventController', function($scope, genericFactory, dialogFactory,$mdSidenav){
+app.controller('eventController', function($scope, genericFactory, dialogFactory,GeocodeFactory, uiGmapGoogleMapApi, $mdSidenav){
     $scope.events = [];
     $scope.current = {};
 
@@ -48,5 +48,9 @@ app.controller('eventController', function($scope, genericFactory, dialogFactory
     $scope.toggleNav = function () {
         $mdSidenav('left').toggle();
     };
+    
+    uiGmapGoogleMapApi.then(function(){
+        GeocodeFactory.create();
+    });
 });
 
