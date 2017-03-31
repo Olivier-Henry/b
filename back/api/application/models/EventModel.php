@@ -22,6 +22,8 @@ class EventModel extends AbstractModel {
      * @var DateTime
      */
     public $date_end;
+    public $lat;
+    public $lon;
 
     public function __construct() {
         parent::__construct();

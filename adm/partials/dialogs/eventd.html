@@ -37,10 +37,10 @@
                     </md-input-container>
                 </div>
                 <div layout-gt-sm="row"  geocode-input>
-                <!--    <md-input-container class="md-block" flex-gt-sm>
-                        <label>Adresse</label>
-                        <input ng-model="current.address" geocode-input>
-                    </md-input-container> -->
+                    <!--    <md-input-container class="md-block" flex-gt-sm>
+                            <label>Adresse</label>
+                            <input ng-model="current.address" geocode-input>
+                        </md-input-container> -->
                     <md-autocomplete flex required
                                      md-input-name="autocompleteField"
                                      md-input-minlength="0"
@@ -50,6 +50,7 @@
                                      md-search-text="current.address"
                                      md-items="item in getLocation(current.address)"
                                      md-item-text="item.formatted_address"
+                                     md-selected-item-change="setCoordinates(item)"
                                      md-require-match
                                      md-floating-label="Adresse"
                                      ng-model="current.address">

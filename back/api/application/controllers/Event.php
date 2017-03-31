@@ -32,6 +32,8 @@ class Event extends CI_Controller {
             $this->eventmodel->address_name = $this->json->address_name;
             $this->eventmodel->date_start = $this->json->date_start;
             $this->eventmodel->date_end = $this->json->date_end;
+            $this->eventmodel->lat = $this->json->lat;
+            $this->eventmodel->lon = $this->json->lon;
 
             echo json_encode($this->eventmodel->save());
         }

@@ -1,21 +1,21 @@
 
-app.controller('eventController', function($scope, genericFactory, dialogFactory, GeocodeFactory, $mdSidenav){
+app.controller('eventController', function ($scope, genericFactory, dialogFactory, GeocodeFactory, $mdSidenav) {
     $scope.events = [];
     $scope.current = {};
 
     $scope.factory = genericFactory.create('event');
-    
+
     $scope.refresh = function () {
         $scope.events = $scope.factory.getAll()
                 .then(function (r) {
                     $scope.events = r;
-                    for(var i = 0; i< $scope.events.length; i++){
+                    for (var i = 0; i < $scope.events.length; i++) {
                         $scope.events[i].map = {
-                          zoom: 14,
-                          center: {
-                              latitude: 45,
-                              longitude: -73
-                          }
+                            zoom: 14,
+                            center: {
+                                latitude: 45,
+                                longitude: -73
+                            }
                         };
                     }
                 });
@@ -48,13 +48,17 @@ app.controller('eventController', function($scope, genericFactory, dialogFactory
     $scope.toggleNav = function () {
         $mdSidenav('left').toggle();
     };
-    
-    $scope.getLocation = function(address){
+
+    $scope.getLocation = function (address) {
         var result = GeocodeFactory.query(address);
-           console.log(result);
-           return result;
+        return result;
     };
-    
+
+    $scope.setCoordinates = function (item) {
+        $scope.current.lat = item.geometry.location.lat();
+        $scope.current.lon = item.geometry.location.lon();
+    };
+
 //    uiGmapGoogleMapApi.then(function(){
 //       
 //    });
