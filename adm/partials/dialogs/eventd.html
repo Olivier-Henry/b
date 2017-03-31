@@ -49,7 +49,7 @@
                                      md-selected-item="search"
                                      md-search-text="current.address"
                                      md-items="item in getLocation(current.address)"
-                                     md-item-text="current.address"
+                                     md-item-text="item.formatted_address"
                                      md-require-match
                                      md-floating-label="Adresse"
                                      ng-model="current.address">
