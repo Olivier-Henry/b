@@ -56,7 +56,7 @@ app.controller('eventController', function ($scope, genericFactory, dialogFactor
 
     $scope.setCoordinates = function (item) {
         $scope.current.lat = item.geometry.location.lat();
-        $scope.current.lon = item.geometry.location.lon();
+        $scope.current.lon = item.geometry.location.lng();
     };
 
 //    uiGmapGoogleMapApi.then(function(){
