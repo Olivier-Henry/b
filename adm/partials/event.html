@@ -29,7 +29,10 @@
                     <p>{{event.description}}</p>
                 </div>
                 <div flex>
-                    <ui-gmap-google-map center='event.map.center' zoom='event.map.zoom' layout-fill></ui-gmap-google-map>
+                    <ui-gmap-google-map center='event.map.center' zoom='event.map.zoom' layout-fill>
+                        <ui-gmap-marker coords="event.marker.coords"  idkey="event.marker.id">
+                        </ui-gmap-marker>
+                    </ui-gmap-google-map>
                 </div>
             </md-list-item>
         </md-list>
