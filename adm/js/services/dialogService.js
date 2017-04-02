@@ -35,13 +35,6 @@ app.factory('dialogFactory', function ($mdDialog) {
                         scope.status = 'You cancelled the dialog.';
                     });
 
-//            var oldShow = $mdDialog.show;
-//            $mdDialog.show = function (options) {
-//                if (options.hasOwnProperty("skipHide")) {
-//                    options.multiple = options.skipHide;
-//                }
-//                return oldShow(options);
-//            };
         }
     };
     return dg;
