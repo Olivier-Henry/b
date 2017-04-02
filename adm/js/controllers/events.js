@@ -1,5 +1,5 @@
 
-app.controller('eventController', function ($scope, genericFactory, dialogFactory, GeocodeFactory,uiGmapGoogleMapApi, $mdSidenav) {
+app.controller('eventController', function ($scope, genericFactory, dialogFactory, GeocodeFactory,uiGmapGoogleMapApi, $mdSidenav ) {
     $scope.events = [];
     $scope.current = {};
 
@@ -70,5 +70,6 @@ app.controller('eventController', function ($scope, genericFactory, dialogFactor
     uiGmapGoogleMapApi.then(function(){
        
     });
+    
 });
 

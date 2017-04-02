@@ -1,6 +1,6 @@
 
 
-var app = angular.module('ngAdmin', ['ngRoute', 'ngMaterial', 'ngAnimate', 'angularFileUpload','uiGmapgoogle-maps', 'mdPickers']);
+var app = angular.module('ngAdmin', ['ngRoute', 'ngMaterial', 'ngAnimate', 'angularFileUpload','uiGmapgoogle-maps', 'ngMaterialDatePicker']);
 
 app.config(function ($routeProvider) {
     $routeProvider

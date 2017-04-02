@@ -18,7 +18,7 @@
                     </md-input-container>
                 </div>
 
-                <div layout-gt-sm="row">
+             <!--   <div layout-gt-sm="row">
                     <md-input-container class="md-block" flex-gt-sm>
                         <label>Début</label>
                         <md-datepicker ng-model="current.date_start" name="dateField"></md-datepicker>
@@ -30,6 +30,23 @@
                         <md-datepicker ng-model="current.date_end" name="dateField"></md-datepicker>
                     </md-input-container>
                 </div>
+             -->
+             <div layout="column" flex-gt-md="30" class="range layout-column flex-gt-md-30">
+  <md-input-container class="md-input-has-placeholder">
+    <label>Start Date/Time</label>
+    <input mdc-datetime-picker date="true" time="true" type="text"
+    placeholder="Date" max-date="dateTimeEnd" ng-model="current.date_start" class=" md-input"
+    readonly="readonly" id="input_0">
+    <div class="md-errors-spacer"></div>
+  </md-input-container>
+  <md-input-container class="md-input-has-placeholder">
+    <label>End Date/Time</label>
+    <input mdc-datetime-picker date="true" time="true" type="text"
+    placeholder="Date" min-date="dateTimeStart" max-date="dateTimeEnd" ng-model="current.date_end" class=" md-input" readonly="readonly"
+    id="input_1">
+    <div class="md-errors-spacer"></div>
+  </md-input-container>
+</div>
                 <div layout-gt-sm="row">
                     <md-input-container class="md-block" flex-gt-sm>
                         <label>Lieu</label>
