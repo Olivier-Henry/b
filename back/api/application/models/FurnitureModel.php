@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . '\AbstractModel.php';
+require_once __DIR__ . '/AbstractModel.php';
 
 /**
  * Description of FurnitureModel
