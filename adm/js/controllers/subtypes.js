@@ -3,7 +3,7 @@ app.controller('subTypeController', function ($scope, $mdDialog, genericFactory,
 
     $scope.subtypes = [];
     $scope.current = {};
-    $scope.factory = genericFactory.create('subfurnituretype');
+    $scope.factory = genericFactory.create('subFurnitureType');
 
     $scope.refresh = function () {
         $scope.subtypes = $scope.factory.getAll()

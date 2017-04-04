@@ -3,7 +3,7 @@ app.controller('typeController', function ($scope, $mdDialog, genericFactory, $m
 
     $scope.types = [];
     $scope.current = {};
-    $scope.factory = genericFactory.create('furnituretype');
+    $scope.factory = genericFactory.create('furnitureType');
 
     $scope.refresh = function () {
         $scope.types = $scope.factory.getAll()

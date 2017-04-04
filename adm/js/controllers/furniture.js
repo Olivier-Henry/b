@@ -10,7 +10,7 @@ app.controller('furnitureController', function ($scope, $mdDialog, genericFactor
 
     $scope.factory = genericFactory.create('furniture');
     $scope.finishsFac = genericFactory.create('finish');
-    $scope.typesFac = genericFactory.create('furnituretype');
+    $scope.typesFac = genericFactory.create('furnitureType');
 
     $scope.types = $scope.typesFac.getAll()
             .then(function (r) {
