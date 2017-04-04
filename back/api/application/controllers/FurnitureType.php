@@ -12,7 +12,7 @@ class FurnitureType extends CI_Controller {
     public function __construct() {
         parent::__construct();
         $this->json = json_decode($this->security->xss_clean($this->input->raw_input_stream));
-        $this->load->model('furnituretypemodel');
+        $this->load->model('FurnitureTypeModel');
     }
 
     public function index() {
@@ -20,7 +20,7 @@ class FurnitureType extends CI_Controller {
     }
 
     public function get($id = 0) {
-        echo json_encode($this->furnituretypemodel->get(intval($id)));
+        echo json_encode($this->FurnitureTypeModel->get(intval($id)));
     }
 
     public function save() {
@@ -31,18 +31,18 @@ class FurnitureType extends CI_Controller {
                 $this->json->id = 0;
             }
             
-            $this->furnituretypemodel->id = $this->json->id;
-            $this->furnituretypemodel->label = $this->json->label;
-            echo json_encode($this->furnituretypemodel->save());
+            $this->FurnitureTypeModel->id = $this->json->id;
+            $this->FurnitureTypeModel->label = $this->json->label;
+            echo json_encode($this->FurnitureTypeModel->save());
         }
     }
 
     public function delete() {
         if ($this->json) {
-            $this->furnituretypemodel->id = $this->json->id;
-            $this->furnituretypemodel->name = $this->json->name;
-            $this->furnituretypemodel->description = $this->json->description;
-            echo json_encode($this->furnituretypemodel->delete());
+            $this->FurnitureTypeModel->id = $this->json->id;
+            $this->FurnitureTypeModel->name = $this->json->name;
+            $this->FurnitureTypeModel->description = $this->json->description;
+            echo json_encode($this->FurnitureTypeModel->delete());
         }
     }
 

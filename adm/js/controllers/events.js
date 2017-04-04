@@ -1,5 +1,5 @@
 
-app.controller('eventController', function ($scope, genericFactory, dialogFactory, GeocodeFactory,uiGmapGoogleMapApi, $mdSidenav ) {
+app.controller('eventController', function ($scope, genericFactory, dialogFactory, GeocodeFactory, uiGmapGoogleMapApi, $mdSidenav) {
     $scope.events = [];
     $scope.current = {};
 
@@ -17,6 +17,9 @@ app.controller('eventController', function ($scope, genericFactory, dialogFactor
                                 longitude: $scope.events[i].lon
                             }
                         };
+                        
+                        $scope.events[i].descPos = i % 2 === 0 ? 1 : 2;
+                        $scope.events[i].mapPos = i % 2 === 0 ? 2 : 1;
 
                         $scope.events[i].marker = {
                             id: i,
@@ -67,9 +70,9 @@ app.controller('eventController', function ($scope, genericFactory, dialogFactor
         $scope.current.lon = item.geometry.location.lng();
     };
 
-    uiGmapGoogleMapApi.then(function(){
-       
+    uiGmapGoogleMapApi.then(function () {
+
     });
-    
+
 });
 

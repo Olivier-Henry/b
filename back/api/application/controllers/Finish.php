@@ -12,7 +12,7 @@ class Finish extends CI_Controller {
     public function __construct() {
         parent::__construct();
         $this->json = json_decode($this->security->xss_clean($this->input->raw_input_stream));
-        $this->load->model('finishmodel');
+        $this->load->model('FinishModel');
     }
 
     public function index() {
@@ -20,7 +20,7 @@ class Finish extends CI_Controller {
     }
 
     public function get($id = 0) {
-        echo json_encode($this->finishmodel->get(intval($id)));
+        echo json_encode($this->FinishModel->get(intval($id)));
     }
 
     public function save() {
@@ -31,17 +31,17 @@ class Finish extends CI_Controller {
                 $this->json->id = 0;
             }
             
-            $this->finishmodel->id = $this->json->id;
-            $this->finishmodel->label = $this->json->label;
-            echo json_encode($this->finishmodel->save());
+            $this->FinishModel->id = $this->json->id;
+            $this->FinishModel->label = $this->json->label;
+            echo json_encode($this->FinishModel->save());
         }
     }
 
     public function delete() {
         if ($this->json) {
-            $this->finishmodel->id = $this->json->id;
-            $this->finishmodel->label = $this->json->label;
-            echo json_encode($this->finishmodel->delete());
+            $this->FinishModel->id = $this->json->id;
+            $this->FinishModel->label = $this->json->label;
+            echo json_encode($this->FinishModel->delete());
         }
     }
 

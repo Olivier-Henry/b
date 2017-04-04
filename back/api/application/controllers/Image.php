@@ -12,7 +12,7 @@ class Image extends CI_Controller {
     public function __construct() {
         parent::__construct();
         $this->json = json_decode($this->security->xss_clean($this->input->raw_input_stream));
-        $this->load->model('imagemodel');
+        $this->load->model('ImageModel');
     }
 
     public function save($id = 0) {
@@ -39,12 +39,12 @@ class Image extends CI_Controller {
         } else {
             $upload_details = $this->upload->data();
 
-            $this->imagemodel->id = 0;
-            $this->imagemodel->name = $upload_details["file_name"];
-            $this->imagemodel->furniture_id = intval($id);
-            $this->imagemodel->id = $this->imagemodel->save();
+            $this->ImageModel->id = 0;
+            $this->ImageModel->name = $upload_details["file_name"];
+            $this->ImageModel->furniture_id = intval($id);
+            $this->ImageModel->id = $this->ImageModel->save();
             
-            $json = $this->imagemodel;
+            $json = $this->ImageModel;
         }
 
         echo json_encode($json);
@@ -59,8 +59,8 @@ class Image extends CI_Controller {
         $file = '../../images/products/' . $this->json->id . '/' . $this->json->name;
 
         if (is_file($file) && unlink($file)) {
-            $this->imagemodel->id = $this->json->id;
-            echo json_encode($this->imagemodel->delete());
+            $this->ImageModel->id = $this->json->id;
+            echo json_encode($this->ImageModel->delete());
         }else{
             echo false;
         }

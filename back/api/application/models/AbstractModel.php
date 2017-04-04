@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__.'\InterfaceModel.php';
+require_once __DIR__.'/InterfaceModel.php';
 
 /**
  * Description of AbstractModel
