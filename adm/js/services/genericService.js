@@ -4,7 +4,7 @@ app.factory('genericFactory', function ($http) {
         create: function (serviceName) {
             var factory = {
                 getOne: function (id) {
-                    return $http.get('/b/back/api/index.php/' + serviceName + '/get/' + +id)
+                    return $http.get('../../b/back/api/index.php/' + serviceName + '/get/' + +id)
                             .then(
                                     function (data) {
                                         console.log(data);
@@ -15,7 +15,7 @@ app.factory('genericFactory', function ($http) {
                             );
                 },
                 getAll: function () {
-                    return $http.get('/b/back/api/index.php/' + serviceName + '/get')
+                    return $http.get('../../b/back/api/index.php/' + serviceName + '/get')
                             .then(
                                     function (data) {
                                         return data.data;
@@ -26,7 +26,7 @@ app.factory('genericFactory', function ($http) {
                             );
                 },
                 save: function (obj) {
-                    return $http.post('/b/back/api/index.php/' + serviceName + '/save', obj)
+                    return $http.post('../../b/back/api/index.php/' + serviceName + '/save', obj)
                             .then(
                                     function (data) {
                                         return data.data;
@@ -37,7 +37,7 @@ app.factory('genericFactory', function ($http) {
                             );
                 },
                 remove: function (obj) {
-                    return $http.post('/b/back/api/index.php/' + serviceName + '/delete', obj)
+                    return $http.post('../../b/back/api/index.php/' + serviceName + '/delete', obj)
                             .then(
                                     function (data) {
                                         return data.data;
