@@ -12,11 +12,11 @@ class Event extends CI_Controller {
     public function __construct() {
         parent::__construct();
         $this->json = json_decode($this->security->xss_clean($this->input->raw_input_stream));
-        $this->load->model('eventModel');
+        $this->load->model('EventModel');
     }
 
     public function get($id = 0) {
-        echo json_encode($this->eventmodel->get(intval($id)));
+        echo json_encode($this->EventModel->get(intval($id)));
     }
 
     public function save() {
