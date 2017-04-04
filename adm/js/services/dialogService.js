@@ -23,7 +23,7 @@ app.factory('dialogFactory', function ($mdDialog) {
                     };
                 },
                 scope: scope.$new(),
-                templateUrl: '../b/adm/partials/dialogs/' + template + '.html',
+                templateUrl: '../../b/adm/partials/dialogs/' + template + '.html',
                 parent: angular.element(document.body),
                 targetEvent: ev,
                 clickOutsideToClose: true,
