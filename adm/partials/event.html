@@ -19,32 +19,44 @@
 
     <md-content md-colors="{background: 'background-A100-0.1'}" flex layout-padding>
         <md-list md-whiteframe="2" md-colors="{background: 'background-A100-0.95'}"  layout-padding>
-            <md-list-item ng-repeat="event in events track by $index" layout-wrap>
-                <div flex="50" flex-order="{{event.descPos}}" layout="column">
-                    <div flex layout="row">
-                        <p flex="50">Nom de l'évènement</p>
-                        <p flex>{{event.label}}</p>
-                    </div>
-                    <div flex layout="row">
-                        <p flex="50">Nom de l'évènement</p>
-                        <p flex>{{event.label}}</p>
-                    </div>
-                    <!--     <div flex="50">
-                             <p>Nom de l'évènement</p>
-                             <p>Débute :</p>
-                             <p>Se termine :</p>
-                             <p>Nom du lieu</p>
-                             <p>Adresse</p>
-                             <p>Description</p>
-                         </div>
-                         <div flex>
-                             <p>{{event.label}}</p>
-                             <p>{{event.date_start}}</p>
-                             <p>{{event.date_end}}</p>
-                             <p>{{event.address_name}}</p>
-                             <p>{{event.address}}</p>
-                             <p>{{event.description}}</p>
-                         </div> -->
+            <md-list-item ng-repeat="event in events track by $index" layout-align="space-between strecth">
+                <div flex="50" flex-order="{{event.descPos}}" layout="row" layout-align="center center">
+                    <table border="0">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Nom de lévènement :</td>
+                                <td ng-bind="event.label"></td>
+                            </tr>
+                            <tr>
+                                <td>Débute :</td>
+                                <td ng-bind="event.date_start"></td>
+                            </tr>
+                            <tr>
+                                <td>Se termine :</td>
+                                <td ng-bind="event.date_end"></td>
+                            </tr>
+                            <tr>
+                                <td>Lieu :</td>
+                                <td ng-bind="event.address_name"></td>
+                            </tr>
+                            <tr>
+                                <td>Adresse :</td>
+                                <td ng-bind="event.address"></td>
+                            </tr>
+                            <tr>
+                                <td>Description:</td>
+                                <td ng-bind="event.description | crop : 200"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                   
                 </div>
                 <div flex flex-order="{{event.mapPos}}" layout-wrap>
                     <ui-gmap-google-map center='event.map.center' zoom='event.map.zoom' layout-fill>
