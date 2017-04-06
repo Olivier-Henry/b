@@ -1,6 +1,6 @@
 
 
-var app = angular.module('ngAdmin', ['ngRoute', 'ngMaterial', 'ngAnimate', 'angularFileUpload','uiGmapgoogle-maps', 'ngMaterialDatePicker']);
+var app = angular.module('ngAdmin', ['ngRoute', 'ngMaterial', 'ngAnimate', 'angularFileUpload','uiGmapgoogle-maps', 'ngMaterialDatePicker', 'angularMoment']);
 
 app.config(function ($routeProvider) {
     $routeProvider
@@ -48,5 +48,9 @@ app.config(function ($mdThemingProvider) {
             .accentPalette('grey')
             .warnPalette('red')
             .backgroundPalette('customBackground');
+});
+
+app.run(function(amMoment) {
+	amMoment.changeLocale('fr');
 });
 
