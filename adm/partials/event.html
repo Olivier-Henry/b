@@ -20,46 +20,54 @@
     <md-content md-colors="{background: 'background-A100-0.1'}" flex layout-padding>
         <md-list md-whiteframe="2" md-colors="{background: 'background-A100-0.95'}"  layout-padding>
             <md-list-item ng-repeat="event in events track by $index" layout-align="space-between strecth">
-                <div flex="50" flex-order="{{event.descPos}}" layout="row" layout-align="center center">
-                    <table border="0">
-                        <thead>
-                            <tr>
-                                <th></th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Nom de lévènement :</td>
-                                <td ng-bind="event.label"></td>
-                            </tr>
-                            <tr>
-                                <td>Débute :</td>
-                                <td ng-bind="event.date_start"></td>
-                            </tr>
-                            <tr>
-                                <td>Se termine :</td>
-                                <td ng-bind="event.date_end"></td>
-                            </tr>
-                            <tr>
-                                <td>Lieu :</td>
-                                <td ng-bind="event.address_name"></td>
-                            </tr>
-                            <tr>
-                                <td>Adresse :</td>
-                                <td ng-bind="event.address"></td>
-                            </tr>
-                            <tr>
-                                <td>Description:</td>
-                                <td ng-bind="event.description | crop : 200"></td>
-                            </tr>
-                        </tbody>
-                    </table>
-
-                   
-                </div>
-                <div flex flex-order="{{event.mapPos}}" layout-wrap>
-                    <ui-gmap-google-map center='event.map.center' zoom='event.map.zoom' layout-fill>
+                <md-content flex="50" flex-order="{{event.descPos}}" layout="row" md-colors="{background: 'background-A100-0.1'}">
+                    <md-list class="md-dense" flex="">
+                        <md-list-item class="md-2-line">
+                            <md-icon class="material-icons">event_available</md-icon>
+                            <div class="md-list-item-text">
+                                <h3>Nom de lévènement</h3>
+                                <p ng-bind="event.label"></p>
+                            </div>
+                        </md-list-item>
+                        <md-list-item class="md-2-line">
+                            <md-icon class="material-icons">event_available</md-icon>
+                            <div class="md-list-item-text">
+                                <h3>Commence</h3>
+                                <p ng-bind="event.date_start"></p>
+                            </div>
+                        </md-list-item>
+                        <md-list-item class="md-2-line">
+                            <md-icon class="material-icons">event_available</md-icon>
+                            <div class="md-list-item-text">
+                                <h3>Se termine</h3>
+                                <p ng-bind="event.date_end"></p>
+                            </div>
+                        </md-list-item>
+                        <md-list-item class="md-2-line">
+                            <md-icon class="material-icons">event_available</md-icon>
+                            <div class="md-list-item-text">
+                                <h3>Nom du lieu</h3>
+                                <p ng-bind="event.address_name"></p>
+                            </div>
+                        </md-list-item>
+                        <md-list-item class="md-2-line">
+                            <md-icon class="material-icons">event_available</md-icon>
+                            <div class="md-list-item-text">
+                                <h3>Adresse</h3>
+                                <p ng-bind="event.address"></p>
+                            </div>
+                        </md-list-item>
+                        <md-list-item class="md-2-line md-long-text">
+                            <md-icon class="material-icons">event_available</md-icon>
+                            <div class="md-list-item-text">
+                                <h3>Description</h3>
+                                <p ng-bind="event.description"></p>
+                            </div>
+                        </md-list-item>
+                    </md-list>   
+                </md-content>
+                <div flex flex-order="{{event.mapPos}}" layout="column">
+                    <ui-gmap-google-map center='event.map.center' zoom='event.map.zoom'>
                         <ui-gmap-marker coords="event.marker.coords"  idkey="event.marker.id">
                         </ui-gmap-marker>
                     </ui-gmap-google-map>

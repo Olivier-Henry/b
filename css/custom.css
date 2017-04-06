@@ -146,7 +146,7 @@ image-slider div:not(.slider-delete-wrapper){
 }
 
 .angular-google-map-container { 
-    height: 300px; 
+    height: 400px; 
 }
 
 @-webkit-keyframes show-calendar {
