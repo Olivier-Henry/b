@@ -9,6 +9,8 @@ app.controller('eventController', function ($scope, genericFactory, dialogFactor
         $scope.events = $scope.factory.getAll()
                 .then(function (r) {
                     $scope.events = r;
+            
+                    console.log(r);
                     for (var i = 0; i < $scope.events.length; i++) {
                         $scope.events[i].map = {
                             zoom: 14,
@@ -20,6 +22,7 @@ app.controller('eventController', function ($scope, genericFactory, dialogFactor
                         
                         $scope.events[i].descPos = i % 2 === 0 ? 1 : 2;
                         $scope.events[i].mapPos = i % 2 === 0 ? 2 : 1;
+                        
 
                         $scope.events[i].marker = {
                             id: i,
