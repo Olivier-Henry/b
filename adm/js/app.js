@@ -1,6 +1,6 @@
 
 
-var app = angular.module('ngAdmin', ['ngRoute', 'ngMaterial', 'ngAnimate', 'angularFileUpload','uiGmapgoogle-maps', 'ngMaterialDatePicker', 'angularMoment', 'angular-jwt']);
+var app = angular.module('ngAdmin', ['ngRoute', 'ngMaterial', 'ngAnimate', 'angularFileUpload','uiGmapgoogle-maps', 'ngMaterialDatePicker', 'angularMoment', 'angular-jwt', 'angular-storage']);
 
 app.config(function ($routeProvider, $httpProvider, jwtInterceptorProvider) {
     
