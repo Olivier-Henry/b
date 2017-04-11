@@ -1,8 +1,15 @@
 
 
-var app = angular.module('ngAdmin', ['ngRoute', 'ngMaterial', 'ngAnimate', 'angularFileUpload','uiGmapgoogle-maps', 'ngMaterialDatePicker', 'angularMoment']);
+var app = angular.module('ngAdmin', ['ngRoute', 'ngMaterial', 'ngAnimate', 'angularFileUpload','uiGmapgoogle-maps', 'ngMaterialDatePicker', 'angularMoment', 'angular-jwt']);
 
-app.config(function ($routeProvider) {
+app.config(function ($routeProvider, $httpProvider, jwtInterceptorProvider) {
+    
+    $httpProvider.defaults.headers.common["X-Requested-With"] = 'XMLHttpRequest';
+    
+    
+    $httpProvider.interceptors.push('jwtInterceptor');
+    
+    
     $routeProvider
             .when('/types', {templateUrl: 'partials/types.html'})
             .when('/subtypes', {templateUrl: 'partials/subtypes.html'})
