@@ -1,0 +1,6 @@
+
+app.factory('loginFactory', function(){
+    
+});
+
+

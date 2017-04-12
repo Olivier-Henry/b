@@ -6,16 +6,20 @@ app.config(function ($routeProvider, $httpProvider, jwtInterceptorProvider) {
     
     $httpProvider.defaults.headers.common["X-Requested-With"] = 'XMLHttpRequest';
     
+    jwtInterceptorProvider.tokenGetter = function(genericFactory){
+        return localStorage.getItem('token');
+    };
     
     $httpProvider.interceptors.push('jwtInterceptor');
     
     
     $routeProvider
-            .when('/types', {templateUrl: 'partials/types.html'})
-            .when('/subtypes', {templateUrl: 'partials/subtypes.html'})
-            .when('/finishes', {templateUrl: 'partials/finish.html'})
-            .when('/furniture', {templateUrl: 'partials/furniture.html'})
-            .when('/events', {templateUrl: 'partials/event.html'})
+            .when('/types', {templateUrl: 'partials/types.html', authorization : true})
+            .when('/subtypes', {templateUrl: 'partials/subtypes.html', authorization : true})
+            .when('/finishes', {templateUrl: 'partials/finish.html', authorization : true})
+            .when('/furniture', {templateUrl: 'partials/furniture.html', authorization : true})
+            .when('/events', {templateUrl: 'partials/event.html', authorization : true})
+            .when('/login', {templateUrl: 'partials/login.html', authorization : false})
             .otherwise({redirectTo: '/types'});
 });
 
