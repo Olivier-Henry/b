@@ -1,1 +1,27 @@
-<p>login page</p>
+<div id="login-wrapper" ng-controller="loginController" layout="column" layout-align="center center">
+    <md-card md-whiteframe="4">
+        <md-subheader class="md-primary">
+        <!--    <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">Authentification</span>
+                </md-card-title-text>
+            </md-card-title>
+      -->
+      Authentification
+        </md-subheader>
+        <md-card-content>
+            <div flex>
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>Nom d'utilisateur</label>
+                    <input ng-model="current.width">
+                </md-input-container>
+            </div>
+            <div flex>
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>Mot de passe</label>
+                    <input ng-model="current.width" type="password">
+                </md-input-container>
+            </div>
+        </md-card-content>
+    </md-card>
+</div>

@@ -157,6 +157,10 @@ image-slider div:not(.slider-delete-wrapper){
   height:100%;
 }
 
+#login-wrapper{
+    height: 100%;
+}
+
 @-webkit-keyframes show-calendar {
     from {
         left: 0px;
