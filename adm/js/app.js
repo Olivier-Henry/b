@@ -61,7 +61,17 @@ app.config(function ($mdThemingProvider) {
             .backgroundPalette('customBackground');
 });
 
-app.run(function(amMoment) {
+app.run(function(amMoment, $rootScope, jwtHelper, store, $location) {
 	amMoment.changeLocale('fr');
+        
+        $rootScope.$on('$routeChangeStart', function(){
+           var token = store.get('token') || null;
+           
+           if(!token || jwtHelper.isTokenExpired(token)){
+               $location.path("/login");
+           }
+           
+           
+        });
 });
 
