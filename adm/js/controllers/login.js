@@ -1,4 +1,4 @@
-app.controller('loginController', function ($scope, loginFactory, jwtHelper, store, $location) {
+app.controller('loginController', function ($scope, loginFactory, store, $location) {
 
     $scope.user = {
         login: 'test',
