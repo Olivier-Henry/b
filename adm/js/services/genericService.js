@@ -15,7 +15,11 @@ app.factory('genericFactory', function ($http) {
                             );
                 },
                 getAll: function () {
-                    return $http.get('../../b/back/api/index.php/' + serviceName + '/get')
+                    return $http({
+                        method: 'GET',
+                        url: '../../b/back/api/index.php/' + serviceName + '/get',
+                        skipAuthorization: false
+                    })
                             .then(
                                     function (data) {
                                         return data.data;
@@ -26,18 +30,27 @@ app.factory('genericFactory', function ($http) {
                             );
                 },
                 save: function (obj) {
-                    return $http.post('../../b/back/api/index.php/' + serviceName + '/save', obj)
+                    return $http({
+                        method: 'POST',
+                        url: '../../b/back/api/index.php/' + serviceName + '/save',
+                        data: obj,
+                        skipAuthorization: false
+                    })
                             .then(
                                     function (data) {
                                         return data.data;
                                     }, function (error) {
                                 console.log(error);
-
                             }
                             );
                 },
                 remove: function (obj) {
-                    return $http.post('../../b/back/api/index.php/' + serviceName + '/delete', obj)
+                    return $http.post({
+                        method: 'POST',
+                        url: '../../b/back/api/index.php/' + serviceName + '/delete',
+                        data: obj,
+                        skipAuthorization: false
+                    })
                             .then(
                                     function (data) {
                                         return data.data;
