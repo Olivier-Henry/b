@@ -11,7 +11,7 @@ app.factory('loginFactory', function ($http) {
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'}
             }).then(function (data) {
                 return data.data;
-            }).then(function (error) {
+            },function (error) {
                 console.log(error);
             });
         }

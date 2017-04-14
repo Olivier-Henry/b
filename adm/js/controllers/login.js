@@ -1,4 +1,4 @@
-app.controller('loginController', function ($scope, loginFactory) {
+app.controller('loginController', function ($scope, loginFactory, jwtHelper, store, $location) {
 
     $scope.user = {
         login: 'test',
@@ -9,7 +9,10 @@ app.controller('loginController', function ($scope, loginFactory) {
 
         var r = loginFactory.auth($scope.user)
                 .then(function (response) {
-                    console.log(response);
+                    if (+response.code === 0) {
+                        store.set('token', response.response.token);
+                        $location.path("/types");
+                    }
                 });
 
     };
