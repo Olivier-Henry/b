@@ -1,6 +1,6 @@
 <?php
 
-require_once './SubFurnitureType.php';
+require_once 'SubFurnitureType.php';
 
 /**
  * Description of JWTSubFurnitureType

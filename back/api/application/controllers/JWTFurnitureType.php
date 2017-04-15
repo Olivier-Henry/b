@@ -1,6 +1,6 @@
 <?php
 
-require_once './FurnitureType.php';
+require_once 'FurnitureType.php';
 /**
  * Description of JWTFurnitureType
  *

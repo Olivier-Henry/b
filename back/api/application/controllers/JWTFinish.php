@@ -7,7 +7,7 @@ require_once 'Finish.php';
  *
  * @author olivier
  */
-class JWTFinish {
+class JWTFinish extends Finish{
     
     public function __construct() {
         parent::__construct();
