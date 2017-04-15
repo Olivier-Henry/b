@@ -35,32 +35,9 @@ class Furniture extends CI_Controller {
         }
 
         echo json_encode($response);
+        
     }
     
-     public function save() {
-       
-        if ($this->json) {
-            
-            if(!isset($this->json->id)){
-                $this->json->id = 0;
-            }
-            
-            $this->FurnitureModel->id = $this->json->id;
-            $this->FurnitureModel->label = $this->json->label;
-            $this->FurnitureModel->type_id = $this->json->type->id;
-            $this->FurnitureModel->finish_id = $this->json->finish->id;
-            $this->FurnitureModel->published = isset($this->json->published) ? $this->json->published : 0;
-            $this->FurnitureModel->price = $this->json->price;
-            $this->FurnitureModel->stock = $this->json->stock;
-            $this->FurnitureModel->delay = $this->json->delay;
-            $this->FurnitureModel->width = $this->json->width;
-            $this->FurnitureModel->height = $this->json->height;
-            $this->FurnitureModel->depth = $this->json->depth;
-            $this->FurnitureModel->description = $this->json->description;
-            
-            
-            echo json_encode($this->FurnitureModel->save());
-        }
-    }
+     
 
 }
