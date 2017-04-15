@@ -23,26 +23,5 @@ class Finish extends CI_Controller {
         echo json_encode($this->FinishModel->get(intval($id)));
     }
 
-    public function save() {
-       
-        if ($this->json) {
-            
-            if(!isset($this->json->id)){
-                $this->json->id = 0;
-            }
-            
-            $this->FinishModel->id = $this->json->id;
-            $this->FinishModel->label = $this->json->label;
-            echo json_encode($this->FinishModel->save());
-        }
-    }
-
-    public function delete() {
-        if ($this->json) {
-            $this->FinishModel->id = $this->json->id;
-            $this->FinishModel->label = $this->json->label;
-            echo json_encode($this->FinishModel->delete());
-        }
-    }
-
+   
 }

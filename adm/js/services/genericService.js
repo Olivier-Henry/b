@@ -32,7 +32,7 @@ app.factory('genericFactory', function ($http) {
                 save: function (obj) {
                     return $http({
                         method: 'POST',
-                        url: '../../b/back/api/index.php/' + serviceName + '/save',
+                        url: '../../b/back/api/index.php/jwt' + serviceName + '/save',
                         data: obj,
                         skipAuthorization: false
                     })

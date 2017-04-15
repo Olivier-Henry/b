@@ -23,9 +23,10 @@ class User extends CI_Controller {
         if (is_array($user) && count($user) === 1) {
             $u = new stdClass();
             $u->iat = time();
-            $u->exp = time() + 3600;
+            $u->exp = time() + EXP;
+            $u->id = $user[0]->id;
             $u->login = $user[0]->login;
-            $jwt = JWT::encode($u, '');
+            $jwt = JWT::encode($u, SECRET_KEY);
 
             echo json_encode(array("code" => 0, "response" => array("token" => $jwt)));
         }else{
