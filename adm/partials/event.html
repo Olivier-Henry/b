@@ -56,7 +56,7 @@
                             </md-card-actions>
                     </md-list>   
                 </md-content>
-                <md-content id="map-canvas" flex flex-order="{{event.mapPos}}" layout="column">
+                <md-content id="map-canvas" flex flex-order="{{event.mapPos}}" layout="column" md-whiteframe="5">
                     <ui-gmap-google-map center='event.map.center' zoom='event.map.zoom'>
                         <ui-gmap-marker coords="event.marker.coords"  idkey="event.marker.id">
                         </ui-gmap-marker>

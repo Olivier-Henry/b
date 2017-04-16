@@ -59,5 +59,21 @@ class JWTEvent extends Event {
                 )
         );
     }
+    
+    public function delete() {
+        if ($this->json) {
+            $this->EventModel->id = $this->json->id;
+            
+            echo json_encode(
+                array(
+                    "code" => 0,
+                    "response" => array(
+                        "token" => $this->jwt,
+                        "furnitureType" => $this->EventModel->delete()
+                    )
+                )
+        );
+        }
+    }
 
 }

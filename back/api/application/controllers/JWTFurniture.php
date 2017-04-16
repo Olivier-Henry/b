@@ -1,6 +1,6 @@
 <?php
 
-require_once './Furniture.php';
+require_once 'Furniture.php';
 
 /**
  * Description of JWTFurniture
@@ -61,6 +61,22 @@ class JWTFurniture extends Furniture{
                     "response" => array(
                         "token" => $this->jwt,
                         "furniture" => $this->FurnitureModel->save()
+                    )
+                )
+        );
+        }
+    }
+    
+     public function delete() {
+        if ($this->json) {
+            $this->FurnitureModel->id = $this->json->id;
+            
+            echo json_encode(
+                array(
+                    "code" => 0,
+                    "response" => array(
+                        "token" => $this->jwt,
+                        "furnitureType" => $this->FurnitureModel->delete()
                     )
                 )
         );

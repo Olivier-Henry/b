@@ -59,15 +59,14 @@ class JWTFurnitureType extends FurnitureType{
     public function delete() {
         if ($this->json) {
             $this->FurnitureTypeModel->id = $this->json->id;
-            $this->FurnitureTypeModel->name = $this->json->name;
-            $this->FurnitureTypeModel->description = $this->json->description;
+            $this->FurnitureTypeModel->label = $this->json->label;
             
              echo json_encode(
                 array(
                     "code" => 0,
                     "response" => array(
                         "token" => $this->jwt,
-                        "furnitureType" => $this->FurnitureTypeModel->save()
+                        "furnitureType" => $this->FurnitureTypeModel->delete()
                     )
                 )
         );

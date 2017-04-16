@@ -18,7 +18,7 @@ app.factory('genericFactory', function ($http) {
                     return $http({
                         method: 'GET',
                         url: '../../b/back/api/index.php/' + serviceName + '/get',
-                        skipAuthorization: false
+                        skipAuthorization: true
                     })
                             .then(
                                     function (data) {
@@ -45,7 +45,7 @@ app.factory('genericFactory', function ($http) {
                             );
                 },
                 remove: function (obj) {
-                    return $http.post({
+                    return $http({
                         method: 'POST',
                         url: '../../b/back/api/index.php/jwt' + serviceName + '/delete',
                         data: obj,
