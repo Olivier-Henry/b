@@ -11,9 +11,54 @@ app.factory('loginFactory', function ($http) {
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'}
             }).then(function (data) {
                 return data.data;
-            },function (error) {
+            }, function (error) {
                 console.log(error);
             });
+        },
+        getAll: function () {
+            return $http({
+                method: 'GET',
+                url: '../../b/back/api/index.php/jwtuser/get',
+                skipAuthorization: false
+            })
+                    .then(
+                            function (data) {
+                                return data.data;
+                            },
+                            function (error) {
+                                console.log(error);
+                            }
+                    );
+        },
+        save: function (obj) {
+            return $http({
+                method: 'POST',
+                url: '../../b/back/api/index.php/jwtuser/save',
+                data: obj,
+                skipAuthorization: false
+            })
+                    .then(
+                            function (data) {
+                                return data.data;
+                            }, function (error) {
+                        console.log(error);
+                    }
+                    );
+        },
+        remove: function (obj) {
+            return $http({
+                method: 'POST',
+                url: '../../b/back/api/index.php/jwtuser/delete',
+                data: obj,
+                skipAuthorization: false
+            })
+                    .then(
+                            function (data) {
+                                return data.data;
+                            }, function (error) {
+                        console.log(error);
+                    }
+                    );
         }
     };
 });

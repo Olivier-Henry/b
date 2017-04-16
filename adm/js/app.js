@@ -20,6 +20,7 @@ app.config(function ($routeProvider, $httpProvider, jwtInterceptorProvider) {
             .when('/furniture', {templateUrl: 'partials/furniture.html', authorization : true})
             .when('/events', {templateUrl: 'partials/event.html', authorization : true})
             .when('/login', {templateUrl: 'partials/login.html', authorization : false})
+            .when('/users', {templateUrl: 'partials/user.html', authorization : false})
             .otherwise({redirectTo: '/types'});
 });
 
