@@ -24,7 +24,7 @@ class JWTUser extends User {
         $this->UserModel->login = $u->login;
         $r = $this->UserModel->is();
 
-        if (!$this->json || !is_array($r) || !count($r)) {
+        if (!is_array($r) || !count($r)) {
             show_404();
         }
 

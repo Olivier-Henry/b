@@ -1,5 +1,5 @@
 
-app.controller('userController', function($scope, loginFactory, dialogFactory, $mdSidenav){
+app.controller('userController', function($scope, loginFactory, dialogFactory, $mdSidenav, FileUploader){
     $scope.users = [];
     $scope.current = {};
 
@@ -39,6 +39,23 @@ app.controller('userController', function($scope, loginFactory, dialogFactory, $
     $scope.toggleNav = function(){
         $mdSidenav('left').toggle();
     };
+    
+     $scope.setUploadingPath = function (user) {
+        return {
+            url: '../back/api/index.php/user/saveimage/' + user.id,
+            autoUpload: true,
+            onComplete: function(response){
+                if(+response.id > 0){
+                    furniture.pictures.push(response);
+                }
+            }
+        };
+    };
+    
+    $scope.uploader = new FileUploader({
+        url: '../back/api/index.php/user/saveimage/',
+        autoUpload: true
+    });
 });
 
 

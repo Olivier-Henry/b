@@ -33,5 +33,37 @@ class User extends CI_Controller {
             echo false;
         }
     }
+    
+    public function saveImage($id = 0){
+        $json = array();
+
+        if ($id === 0) {
+            return false;
+        }
+
+        if (!is_dir('../../images/user/' . $id)) {
+            mkdir('../../images/user/' . $id, 0777, true);
+        }
+
+        $config['upload_path'] = '../../images/user/' . $id;
+        $config['allowed_types'] = 'gif|jpg|png';
+        $config['encrypt_name'] = TRUE;
+
+        $this->load->library('upload', $config);
+
+        $this->upload->initialize($config);
+
+        if (!$this->upload->do_upload('file')) {
+            $json = array('error' => true, 'message' => $this->upload->display_errors());
+        } else {
+            $upload_details = $this->upload->data();
+
+            $this->UserModel->retrieve($id);
+            $this->UserModel->picture = $upload_details["file_name"];
+            $json = $this->UserModel->save();
+        }
+
+        echo json_encode($json);
+    }
 
 }

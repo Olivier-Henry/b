@@ -23,7 +23,7 @@ class Image extends CI_Controller {
         }
 
         if (!is_dir('../../images/products/' . $id)) {
-            mkdir('../../images/products/' . $id);
+            mkdir('../../images/products/' . $id, 0777, true);
         }
 
         $config['upload_path'] = '../../images/products/' . $id;

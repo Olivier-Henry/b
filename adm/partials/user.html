@@ -1,1 +1,47 @@
+<div ng-controller="userController" layout="column">
 
+    <md-toolbar class="md-accent md-hue-2">
+        <div class="md-toolbar-tools">
+            <md-button class="md-primary md-raised md-fab md-mini" aria-label="Modifier" ng-click="toggleNav()">
+                <md-icon>menu</md-icon>
+            </md-button>
+            <h2>
+                <span>Utilisateurs</span>
+            </h2>
+            <span flex></span>
+            <md-button class="md-primary md-raised" aria-label="Nouveau" ng-click="add($event)">
+                <md-icon>add</md-icon>
+                Nouveau
+            </md-button>
+
+        </div>
+    </md-toolbar>
+
+    <md-content md-colors="{background: 'background-A100-0.1'}" flex layout-padding>
+        <md-grid-list
+            md-cols-xs="1" md-cols-sm="3" md-cols-md="4" md-cols-lg="4" md-cols-xl="8" md-row-height="3:4" md-gutter="8px">
+            <md-grid-tile ng-repeat="user in users" ng-style="{'background': 'white'}">
+                <div layout="column" layout-fill class="md-whiteframe-5dp">
+
+                    <image-slider furniture="user" flex="55"></image-slider>
+
+                    <md-card-actions layout="row" layout-align="end center" layout-margin>
+                        <input id="upload{{$index}}" nv-file-select uploader="uploader" type="file" options="setUploadingPath(user)" class="ng-hide">
+                        <md-button class="md-primary md-icon-button" aria-label="Modifier" ng-click="addImages(user, $index)">
+                            <md-icon>add_to_photos</md-icon>
+                        </md-button>
+                        <md-button class="md-primary md-icon-button" aria-label="Modifier" ng-click="edit(user)">
+                            <md-icon>edit</md-icon>
+                        </md-button>
+                        <md-button class="md-warn md-icon-button md-hue-2" aria-label="Supprimer" ng-click="remove(user)">
+                            <md-icon>delete</md-icon>
+                        </md-button>
+                    </md-card-actions>
+                    <md-card-content layout-wrap>
+                        <h4  ng-bind="user.login" layout-margin></h4>
+                    </md-card-content>
+                </div>
+            </md-grid-tile>
+        </md-grid-list>
+    </md-content>
+</div>
