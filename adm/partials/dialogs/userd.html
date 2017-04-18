@@ -1,1 +1,65 @@
+<md-dialog aria-label="Ajouter un utilisateur">
+    <form ng-cloak>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>Ajouter un utilisateur</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="cancel()">
+                    <md-icon>close</md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content>
+            <div class="md-dialog-content">
+                <div layout-gt-sm="row">
+                    <md-input-container class="md-block" flex-gt-sm>
+                        <label>Login</label>
+                        <input ng-model="current.login">
+                    </md-input-container>
+                </div>
+                <div layout-gt-sm="row">
+                    <md-input-container class="md-block" flex-gt-sm>
+                        <label>Prénom</label>
+                        <input ng-model="current.firstname">
+                    </md-input-container>
+                </div>
+                <div layout-gt-sm="row">
+                    <md-input-container class="md-block" flex-gt-sm>
+                        <label>Nom</label>
+                        <input ng-model="current.lastname">
+                    </md-input-container>
+                </div>
+                <div layout-gt-sm="row">
+                    <md-input-container class="md-block" flex-gt-sm>
+                        <label>Email</label>
+                        <input ng-model="current.email">
+                    </md-input-container>
+                </div>
+                <div layout-gt-sm="row">
+                    <md-input-container class="md-block" flex-gt-sm>
+                        <label>Mot de passe</label>
+                        <input ng-model="current.password" type="password">
+                    </md-input-container>
+                </div>
+                <div layout-gt-sm="row">
+                    <md-input-container class="md-block" flex-gt-sm>
+                        <label>Mot de passe(confirmation)</label>
+                        <input ng-model="current.passwordConfirm" type="password">
+                    </md-input-container>
+                </div>
+            </div>
+        </md-dialog-content>
+        <md-dialog-actions layout="row">
+
+            <span flex></span>
+            <md-button ng-click="cancel()">
+                Annuler
+            </md-button>
+            <md-button class="md-primary md-raised" ng-click="save()">
+                Sauvegarder
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>
+
 

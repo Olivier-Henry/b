@@ -6,7 +6,8 @@ app.controller('userController', function($scope, loginFactory, dialogFactory, $
     $scope.refresh = function () {
         $scope.users = loginFactory.getAll()
                 .then(function (r) {
-                    $scope.users = r;
+                    $scope.users = r.response.users;
+                    console.log(r);
                 });
     };
 
@@ -40,13 +41,18 @@ app.controller('userController', function($scope, loginFactory, dialogFactory, $
         $mdSidenav('left').toggle();
     };
     
+    $scope.addImages = function (user, i) {
+        var input = document.getElementById('upload' + i);
+        input.click();
+    };
+    
      $scope.setUploadingPath = function (user) {
         return {
             url: '../back/api/index.php/user/saveimage/' + user.id,
             autoUpload: true,
             onComplete: function(response){
                 if(+response.id > 0){
-                    furniture.pictures.push(response);
+                    user.picture = response.picture;
                 }
             }
         };

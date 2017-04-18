@@ -32,9 +32,27 @@ class JWTUser extends User {
         $u->exp = time() + EXP;
         $this->jwt = JWT::encode($u, SECRET_KEY);
     }
-    
+
     public function get($id = 0) {
-        echo json_encode($this->UserModel->get(intval($id)));
+        $user = $this->UserModel->get(intval($id));
+
+        if (is_object($user)) {
+            $user->password = null;
+        } else if (is_array($user) & count($user)) {
+            foreach ($user as $k => $u) {
+                $u->password = null;
+            }
+        }
+
+        echo json_encode(
+                array(
+                    "code" => 0,
+                    "response" => array(
+                        "token" => $this->jwt,
+                        "users" => $user
+                    )
+                )
+        );
     }
 
     public function save() {
