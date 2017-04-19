@@ -28,12 +28,15 @@
                     <md-card-actions layout="row" layout-align="end center" layout-margin>
                         <input id="upload{{$index}}" nv-file-select uploader="uploader" type="file" options="setUploadingPath(furniture)" class="ng-hide" multiple>
                         <md-button class="md-primary md-icon-button" aria-label="Modifier" ng-click="addImages(furniture, $index)">
+                            <md-tooltip md-direction="bottom">Ajouter des images</md-tooltip>
                             <md-icon>add_to_photos</md-icon>
                         </md-button>
                         <md-button class="md-primary md-icon-button" aria-label="Modifier" ng-click="edit(furniture)">
+                            <md-tooltip md-direction="bottom">Modifier</md-tooltip>
                             <md-icon>edit</md-icon>
                         </md-button>
                         <md-button class="md-warn md-icon-button md-hue-2" aria-label="Supprimer" ng-click="remove(furniture)">
+                            <md-tooltip md-direction="bottom">Supprimer</md-tooltip>
                             <md-icon>delete</md-icon>
                         </md-button>
                     </md-card-actions>
