@@ -50,21 +50,6 @@ class Image extends CI_Controller {
         echo json_encode($json);
     }
 
-    public function delete() {
-        
-        if (intval($this->json->id) < 1) {
-            return false;
-        }
- 
-        $file = '../../images/products/' . $this->json->id . '/' . $this->json->name;
-
-        if (is_file($file) && unlink($file)) {
-            $this->ImageModel->id = $this->json->id;
-            echo json_encode($this->ImageModel->delete());
-        }else{
-            echo false;
-        }
-        
-    }
+    
 
 }

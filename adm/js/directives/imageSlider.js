@@ -16,12 +16,13 @@ app.directive('imageSlider', function (genericFactory) {
                 $scope.furniture.pictures.pop();
 
             };
+            
 
             $scope.deletePicture = function () {
                 genericFactory.create("image").remove($scope.furniture.pictures[0])
                         .then(
                                 function (response) {
-                                    console.log(response);
+                                    $scope.furniture.pictures.shift();
                                 }
                         );
             };

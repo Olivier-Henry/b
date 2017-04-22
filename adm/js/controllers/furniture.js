@@ -60,7 +60,6 @@ app.controller('furnitureController', function ($scope, $mdDialog, genericFactor
 
     $scope.dialog = function (ev) {
         dialogFactory.getDialog(ev, $scope, $scope.factory, 'furnitured');
-
     };
 
     $scope.toggleNav = function () {
