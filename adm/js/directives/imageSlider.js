@@ -1,5 +1,5 @@
 
-app.directive('imageSlider', function (genericFactory) {
+app.directive('imageSlider', function (genericFactory, $mdToast) {
     return {
         restrict: 'E',
         templateUrl: '../adm/partials/directives/slider.html',
@@ -16,12 +16,18 @@ app.directive('imageSlider', function (genericFactory) {
                 $scope.furniture.pictures.pop();
 
             };
-            
+
 
             $scope.deletePicture = function () {
                 genericFactory.create("image").remove($scope.furniture.pictures[0])
                         .then(
                                 function (response) {
+                                    $mdToast.show(
+                                            $mdToast.simple()
+                                            .textContent('Image supprimée!')
+                                            .position('bottom right')
+                                            .hideDelay(2000)
+                                            );
                                     $scope.furniture.pictures.shift();
                                 }
                         );

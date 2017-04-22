@@ -36,8 +36,8 @@ app.config(function(uiGmapGoogleMapApiProvider) {
 app.config(function ($mdThemingProvider) {
 
     var customBackground = {
-        '50': '#303030',
-        '100': '#666666',
+        '50': '#fff',
+        '100': '#000000',
         '200': '#595959',
         '300': '#4d4d4d',
         '400': '#404040',
