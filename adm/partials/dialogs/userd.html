@@ -53,9 +53,9 @@
                     </md-input-container>
                     <md-input-container class="md-block" flex-gt-sm>
                         <label>Mot de passe(confirmation)</label>
-                        <input name="passConfirm" ng-model="current.passwordConfirm" type="password" ng-required="!current.id">
+                        <input name="passConfirm" ng-model="current.passwordConfirm" type="password" ng-required="!current.id" input-comparison="current.password">
                         <div ng-messages="form.passConfirm.$error" ng-show="form.passConfirm.$invalid">
-                            <div ng-message="required">La confirmation du mot de passe est obligatoire</div>
+                            <div ng-message="identical">Les mots de passe ne correspondent pas</div>
                         </div>
                     </md-input-container>
                 </div>
