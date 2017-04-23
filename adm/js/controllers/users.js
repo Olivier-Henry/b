@@ -33,7 +33,7 @@ app.controller('userController', function($scope, loginFactory, dialogFactory, $
     };
 
     $scope.dialog = function (ev) {
-        dialogFactory.getDialog(ev, $scope, loginFactory, 'userd');
+        dialogFactory.getDialog(ev, $scope, loginFactory, 'userd', $scope.validateForm);
 
     };
     
@@ -62,6 +62,7 @@ app.controller('userController', function($scope, loginFactory, dialogFactory, $
         url: '../back/api/index.php/user/saveimage/',
         autoUpload: true
     });
+    
 });
 
 

@@ -1,5 +1,5 @@
 <md-dialog aria-label="Ajouter un utilisateur">
-    <form ng-cloak>
+    <form name="form" ng-submit="save(form)" ng-cloak novalidate>
         <md-toolbar>
             <div class="md-toolbar-tools">
                 <h2>Ajouter un utilisateur</h2>
@@ -14,39 +14,58 @@
                 <div layout-gt-sm="row">
                     <md-input-container class="md-block" flex-gt-sm>
                         <label>Login</label>
-                        <input ng-model="current.login">
+                        <input name="login" ng-model="current.login" required>
+                        <div ng-messages="form.login.$error" ng-show="form.login.$invalid">
+                            <div ng-message="required">Le login est obligatoire</div>
+                        </div>
                     </md-input-container>
                 </div>
                 <div layout-gt-sm="row">
                     <md-input-container class="md-block" flex-gt-sm>
                         <label>Prénom</label>
-                        <input ng-model="current.firstname">
+                        <input name="firstname" ng-model="current.firstname" required>
+                        <div ng-messages="form.firstname.$error" ng-show="form.firstname.$invalid">
+                            <div ng-message="required">Le Prénom est obligatoire</div>
+                        </div>
                     </md-input-container>
                 </div>
                 <div layout-gt-sm="row">
                     <md-input-container class="md-block" flex-gt-sm>
                         <label>Nom</label>
-                        <input ng-model="current.lastname">
+                        <input name="lastname" ng-model="current.lastname" required>
+                        <div ng-messages="form.lastname.$error" ng-show="form.lastname.$invalid">
+                            <div ng-message="required">Le nom est obligatoire</div>
+                        </div>
                     </md-input-container>
                 </div>
                 <div layout-gt-sm="row">
                     <md-input-container class="md-block" flex-gt-sm>
                         <label>Email</label>
-                        <input ng-model="current.email">
+                        <input type="email" name="email" ng-model="current.email" required>
+                        <div ng-messages="form.lastname.$error" ng-show="form.email.$invalid">
+                            <div ng-message="required">L'email est obligatoire</div>
+                        </div>
                     </md-input-container>
                 </div>
                 <div layout-gt-sm="row">
                     <md-input-container class="md-block" flex-gt-sm>
                         <label>Mot de passe</label>
-                        <input ng-model="current.password" type="password">
+                        <input name="pass" ng-model="current.password" type="password" ng-required="!current.id">
+                        <div ng-messages="form.pass.$error" ng-show="form.pass.$invalid">
+                            <div ng-message="required">Le mot de passe est obligatoire</div>
+                        </div>
                     </md-input-container>
                 </div>
                 <div layout-gt-sm="row">
                     <md-input-container class="md-block" flex-gt-sm>
                         <label>Mot de passe(confirmation)</label>
-                        <input ng-model="current.passwordConfirm" type="password">
+                        <input name="passConfirm" ng-model="current.passwordConfirm" type="password" ng-required="!current.id">
+                        <div ng-messages="form.passConfirm.$error" ng-show="form.passConfirm.$invalid">
+                            <div ng-message="required">La confirmation du mot de passe est obligatoire</div>
+                        </div>
                     </md-input-container>
                 </div>
+
             </div>
         </md-dialog-content>
         <md-dialog-actions layout="row">
@@ -55,7 +74,7 @@
             <md-button ng-click="cancel()">
                 Annuler
             </md-button>
-            <md-button class="md-primary md-raised" ng-click="save()">
+            <md-button class="md-primary md-raised" type="submit">
                 Sauvegarder
             </md-button>
         </md-dialog-actions>

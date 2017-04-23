@@ -1,5 +1,5 @@
 
-app.factory('dialogFactory', function ($mdDialog) {
+app.factory('dialogFactory', function ($mdDialog, $mdToast) {
     var dg = {
         getDialog: function (ev, scope, ctxFactory, template) {
             $mdDialog.show({
@@ -9,12 +9,20 @@ app.factory('dialogFactory', function ($mdDialog) {
                         $mdDialog.cancel();
                     };
 
-                    scope.save = function () {
-                        console.log(scope.current);
+                    scope.save = function (form) {
+
+                        if (form.$invalid)
+                            return false;
+
                         ctxFactory.save(scope.current)
                                 .then(
                                         function (r) {
-                                            console.log(r);
+                                            $mdToast.show(
+                                                    $mdToast.simple()
+                                                    .textContent('Mise à jour effectuée!')
+                                                    .position('bottom right')
+                                                    .hideDelay(2000)
+                                                    );
                                             scope.refresh();
                                         }
                                 );
