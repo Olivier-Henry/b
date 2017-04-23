@@ -4,6 +4,9 @@ app.factory('dialogFactory', function ($mdDialog, $mdToast) {
         getDialog: function (ev, scope, ctxFactory, template) {
             $mdDialog.show({
                 controller: function (scope, $mdDialog) {
+                    
+                    scope.emailFormat = /^[a-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$/;
+                    
                     scope.cancel = function () {
                         scope.current = {};
                         $mdDialog.cancel();

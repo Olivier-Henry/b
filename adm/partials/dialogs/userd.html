@@ -19,8 +19,6 @@
                             <div ng-message="required">Le login est obligatoire</div>
                         </div>
                     </md-input-container>
-                </div>
-                <div layout-gt-sm="row">
                     <md-input-container class="md-block" flex-gt-sm>
                         <label>Prénom</label>
                         <input name="firstname" ng-model="current.firstname" required>
@@ -37,13 +35,11 @@
                             <div ng-message="required">Le nom est obligatoire</div>
                         </div>
                     </md-input-container>
-                </div>
-                <div layout-gt-sm="row">
                     <md-input-container class="md-block" flex-gt-sm>
                         <label>Email</label>
-                        <input type="email" name="email" ng-model="current.email" required>
-                        <div ng-messages="form.lastname.$error" ng-show="form.email.$invalid">
-                            <div ng-message="required">L'email est obligatoire</div>
+                        <input type="email" name="email" ng-model="current.email"  ng-pattern="emailFormat" required>
+                        <div ng-messages="form.email.$error" ng-show="form.email.$invalid">
+                            <div ng-message="email">L'email saisi est invalide</div>
                         </div>
                     </md-input-container>
                 </div>
@@ -55,8 +51,6 @@
                             <div ng-message="required">Le mot de passe est obligatoire</div>
                         </div>
                     </md-input-container>
-                </div>
-                <div layout-gt-sm="row">
                     <md-input-container class="md-block" flex-gt-sm>
                         <label>Mot de passe(confirmation)</label>
                         <input name="passConfirm" ng-model="current.passwordConfirm" type="password" ng-required="!current.id">
