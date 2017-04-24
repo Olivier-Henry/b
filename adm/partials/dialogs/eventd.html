@@ -10,75 +10,68 @@
             </div>
         </md-toolbar>
         <md-dialog-content>
-            <div class="md-dialog-content">
-                <div layout-gt-sm="row">
-                    <md-input-container class="md-block" flex-gt-sm>
-                        <label>Nom de l'évènement</label>
-                        <input ng-model="current.label">
-                    </md-input-container>
-                </div>
-
-
-                <div layout="column" flex-gt-md="30" class="range layout-column flex-gt-md-30">
-                    <md-input-container class="md-input-has-placeholder">
-                        <label>Date et heure de début</label>
-                        <input mdc-datetime-picker date="true" time="true" type="text"
-                               placeholder="Date et heure" max-date="dateTimeEnd" ng-model="current.date_start" class=" md-input"
-                               readonly="readonly" id="input_0" format="dddd DD MMMM YYYY [à] HH:mm" lang="fr-fr">
-                        <div class="md-errors-spacer"></div>
-                    </md-input-container>
-                    <md-input-container class="md-input-has-placeholder">
-                        <label>Date et heure de fin</label>
-                        <input mdc-datetime-picker date="true" time="true" type="text"
-                               placeholder="Date et heure" format="dddd DD MMMM YYYY [à] HH:mm" min-date="current.date_start" max-date="dateTimeEnd" ng-model="current.date_end" class=" md-input" readonly="readonly"
-                               id="input_1" lang="fr-fr">
-                        <div class="md-errors-spacer"></div>
-                    </md-input-container>
-                </div>
-                <div layout-gt-sm="row">
-                    <md-input-container class="md-block" flex-gt-sm>
-                        <label>Lieu</label>
-                        <input ng-model="current.address_name">
-                    </md-input-container>
-                </div>
-                <div layout-gt-sm="row"  geocode-input>
-                    <!--    <md-input-container class="md-block" flex-gt-sm>
-                            <label>Adresse</label>
-                            <input ng-model="current.address" geocode-input>
-                        </md-input-container> -->
-                    <md-autocomplete flex required
-                                     md-input-name="autocompleteField"
-                                     md-input-minlength="0"
-                                     md-input-maxlength="100"
-                                     md-no-cache="true"
-                                     md-selected-item="search"
-                                     md-search-text="current.address"
-                                     md-items="item in getLocation(current.address)"
-                                     md-item-text="item.formatted_address"
-                                     md-selected-item-change="setCoordinates(item)"
-                                     md-require-match
-                                     md-floating-label="Adresse"
-                                     ng-model="current.address">
-                        <md-item-template>
-                            <span md-highlight-text="current.address">{{item.formatted_address}}</span>
-                        </md-item-template>
-                        <div ng-messages="searchForm.autocompleteField.$error" ng-if="searchForm.autocompleteField.$touched">
-                            <div ng-message="required">You <b>must</b> have a favorite state.</div>
-                            <div ng-message="md-require-match">Please select an existing state.</div>
-                            <div ng-message="minlength">Your entry is not long enough.</div>
-                            <div ng-message="maxlength">Your entry is too long.</div>
-                        </div>
-                    </md-autocomplete>
-                </div>
-                <div layout-gt-sm="row">
-                    <md-input-container class="md-block" flex-gt-sm>
-                        <label>Description</label>
-                        <textarea ng-model="current.description" md-maxlength="500" rows="5" md-select-on-focus></textarea>
-                    </md-input-container>
-                </div>
-
-
+            <div layout-gt-sm="row">
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>Nom de l'évènement</label>
+                    <input ng-model="current.label">
+                </md-input-container>
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>Lieu</label>
+                    <input ng-model="current.address_name">
+                </md-input-container>
             </div>
+            <div layout-gt-sm="row"  geocode-input>
+                <md-autocomplete flex required
+                                 md-input-name="autocompleteField"
+                                 md-input-minlength="0"
+                                 md-input-maxlength="100"
+                                 md-no-cache="true"
+                                 md-selected-item="search"
+                                 md-search-text="current.address"
+                                 md-items="item in getLocation(current.address)"
+                                 md-item-text="item.formatted_address"
+                                 md-selected-item-change="setCoordinates(item)"
+                                 md-require-match
+                                 md-floating-label="Adresse"
+                                 ng-model="current.address">
+                    <md-item-template>
+                        <span md-highlight-text="current.address">{{item.formatted_address}}</span>
+                    </md-item-template>
+                    <div ng-messages="searchForm.autocompleteField.$error" ng-if="searchForm.autocompleteField.$touched">
+                        <div ng-message="required">You <b>must</b> have a favorite state.</div>
+                        <div ng-message="md-require-match">Please select an existing state.</div>
+                        <div ng-message="minlength">Your entry is not long enough.</div>
+                        <div ng-message="maxlength">Your entry is too long.</div>
+                    </div>
+                </md-autocomplete>
+            </div>
+
+
+            <div layout="row" flex-gt-sm class="range">
+                <md-input-container class="md-input-has-placeholder">
+                    <label>Date et heure de début</label>
+                    <input mdc-datetime-picker date="true" time="true" type="text"
+                           placeholder="Date et heure" max-date="dateTimeEnd" ng-model="current.date_start" class=" md-input"
+                           readonly="readonly" id="input_0" format="dddd DD MMMM YYYY [à] HH:mm" lang="fr-fr">
+                    <div class="md-errors-spacer"></div>
+                </md-input-container>
+                <md-input-container class="md-input-has-placeholder">
+                    <label>Date et heure de fin</label>
+                    <input mdc-datetime-picker date="true" time="true" type="text"
+                           placeholder="Date et heure" format="dddd DD MMMM YYYY [à] HH:mm" min-date="current.date_start" max-date="dateTimeEnd" ng-model="current.date_end" class=" md-input" readonly="readonly"
+                           id="input_1" lang="fr-fr">
+                    <div class="md-errors-spacer"></div>
+                </md-input-container>
+            </div>
+
+            <div layout-gt-sm="row">
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>Description</label>
+                    <textarea ng-model="current.description" md-maxlength="500" rows="5" md-select-on-focus></textarea>
+                </md-input-container>
+            </div>
+
+
         </md-dialog-content>
         <md-dialog-actions layout="row">
 
