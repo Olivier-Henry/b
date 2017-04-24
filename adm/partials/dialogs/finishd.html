@@ -1,5 +1,5 @@
 <md-dialog aria-label="Ajouter une finition">
-    <form ng-cloak>
+    <form ng-cloak name="form" ng-submit="save(form)" novalidate>
         <md-toolbar>
             <div class="md-toolbar-tools">
                 <h2>Ajouter une finition</h2>
@@ -14,7 +14,10 @@
                 <div layout-gt-sm="row">
                     <md-input-container class="md-block" flex-gt-sm>
                         <label>Libellé</label>
-                        <input ng-model="current.label">
+                        <input name="label" ng-model="current.label" required>
+                        <div ng-messages="form.lastname.$error" ng-show="form.label.$invalid">
+                            <div ng-message="required">Le libellé est obligatoire</div>
+                        </div>
                     </md-input-container>
                 </div>
             </div>
@@ -25,7 +28,7 @@
             <md-button ng-click="cancel()">
                 Annuler
             </md-button>
-            <md-button class="md-primary md-raised" ng-click="save()">
+            <md-button class="md-primary md-raised">
                 Sauvegarder
             </md-button>
         </md-dialog-actions>
