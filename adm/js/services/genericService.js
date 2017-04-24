@@ -32,7 +32,7 @@ app.factory('genericFactory', function ($http) {
                 save: function (obj) {
                     return $http({
                         method: 'POST',
-                        url: '../../b/back/api/index.php/jwt' + serviceName + '/save',
+                        url: '../../b/back/api/index.php/jWT' + serviceName + '/save',
                         data: obj,
                         skipAuthorization: false
                     })
@@ -47,7 +47,7 @@ app.factory('genericFactory', function ($http) {
                 remove: function (obj) {
                     return $http({
                         method: 'POST',
-                        url: '../../b/back/api/index.php/jwt' + serviceName + '/delete',
+                        url: '../../b/back/api/index.php/jWT' + serviceName + '/delete',
                         data: obj,
                         skipAuthorization: false
                     })
