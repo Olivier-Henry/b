@@ -13,11 +13,17 @@
             <div layout-gt-sm="row">
                 <md-input-container class="md-block" flex-gt-sm>
                     <label>Nom de l'évènement</label>
-                    <input ng-model="current.label">
+                    <input name="label" ng-model="current.label" required>
+                    <div ng-messages="form.label.$error" ng-show="form.label.$invalid">
+                        <div ng-message="required">Le nom de l'évènement est obligatoire</div>
+                    </div>
                 </md-input-container>
                 <md-input-container class="md-block" flex-gt-sm>
                     <label>Lieu</label>
-                    <input ng-model="current.address_name">
+                    <input name="address" ng-model="current.address_name" required>
+                    <div ng-messages="form.address.$error" ng-show="form.address.$invalid">
+                        <div ng-message="required">L'adresse est obligatoire</div>
+                    </div>
                 </md-input-container>
             </div>
             <div layout-gt-sm="row"  geocode-input>
