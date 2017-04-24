@@ -61,10 +61,19 @@ class JWTUser extends User {
 
             if (!isset($this->json->id)) {
                 $this->json->id = 0;
+                
+            }
+            
+            if($this->json->id){
+                $this->UserModel->retrieve($this->json->id);
             }
 
             $this->UserModel->id = $this->json->id;
+            $this->UserModel->login = $this->json->login;
             $this->UserModel->password = sha1($this->json->password);
+            $this->UserModel->email = $this->json->email;
+            $this->UserModel->firstname = $this->json->firstname;
+            $this->UserModel->lastname = $this->json->lastname;
 
             echo json_encode(
                     array(
