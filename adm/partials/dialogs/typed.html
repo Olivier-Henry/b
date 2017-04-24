@@ -1,5 +1,5 @@
 <md-dialog aria-label="Ajouter un type">
-    <form ng-cloak>
+    <form name="form" ng-cloak ng-submit="save()">
         <md-toolbar>
             <div class="md-toolbar-tools">
                 <h2>Ajouter un type</h2>
@@ -14,7 +14,10 @@
                 <div layout-gt-sm="row">
                     <md-input-container class="md-block" flex-gt-sm>
                         <label>Libellé</label>
-                        <input ng-model="current.label">
+                        <input name="label" ng-model="current.label" required>
+                        <div ng-messages="form.label.$error" ng-show="form.login.$invalid">
+                            <div ng-message="required">Le libellé est obligatoire</div>
+                        </div>
                     </md-input-container>
                 </div>
               
@@ -26,7 +29,7 @@
             <md-button ng-click="cancel()">
                 Annuler
             </md-button>
-            <md-button class="md-primary md-raised" ng-click="save()">
+            <md-button class="md-primary md-raised" type="submit">
                 Sauvegarder
             </md-button>
         </md-dialog-actions>
