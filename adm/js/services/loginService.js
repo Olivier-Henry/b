@@ -18,7 +18,7 @@ app.factory('loginFactory', function ($http) {
         getAll: function () {
             return $http({
                 method: 'GET',
-                url: '../../b/back/api/index.php/jwtuser/get',
+                url: '../../b/back/api/index.php/jWTUser/get',
                 skipAuthorization: false
             })
                     .then(
@@ -33,7 +33,7 @@ app.factory('loginFactory', function ($http) {
         save: function (obj) {
             return $http({
                 method: 'POST',
-                url: '../../b/back/api/index.php/jwtuser/save',
+                url: '../../b/back/api/index.php/jWTUser/save',
                 data: obj,
                 skipAuthorization: false
             })
@@ -48,7 +48,7 @@ app.factory('loginFactory', function ($http) {
         remove: function (obj) {
             return $http({
                 method: 'POST',
-                url: '../../b/back/api/index.php/jwtuser/delete',
+                url: '../../b/back/api/index.php/jWTUser/delete',
                 data: obj,
                 skipAuthorization: false
             })
