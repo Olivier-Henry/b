@@ -7,6 +7,11 @@ app.directive('inputComparison', function () {
         },
         link: function (scope, element, attrs, ctrl) {
             ctrl.$validators.identical = function (modelValue, viewValue) {
+                
+                if(angular.isUndefined(modelValue)){
+                    modelValue = null;  
+                }
+                
                 if (modelValue === scope.inputComparison)
                     return true;
                 return false;

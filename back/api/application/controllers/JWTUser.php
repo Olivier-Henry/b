@@ -38,7 +38,7 @@ class JWTUser extends User {
 
         if (is_object($user)) {
             $user->password = null;
-        } else if (is_array($user) & count($user)) {
+        } else if (is_array($user) && count($user)) {
             foreach ($user as $k => $u) {
                 $u->password = null;
             }
@@ -61,16 +61,19 @@ class JWTUser extends User {
 
             if (!isset($this->json->id)) {
                 $this->json->id = 0;
-                
+                $this->UserModel->password = sha1($this->json->password);
             }
-            
-            if($this->json->id){
+
+            if ($this->json->id) {
                 $this->UserModel->retrieve($this->json->id);
+
+                if (!empty($this->json->password)) {
+                    $this->UserModel->password = sha1($this->json->password);
+                }
             }
 
             $this->UserModel->id = $this->json->id;
             $this->UserModel->login = $this->json->login;
-            $this->UserModel->password = sha1($this->json->password);
             $this->UserModel->email = $this->json->email;
             $this->UserModel->firstname = $this->json->firstname;
             $this->UserModel->lastname = $this->json->lastname;
