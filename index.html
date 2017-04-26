@@ -10,7 +10,31 @@
     </head>
     <body ng-app="ngApp" ng-cloak layout="column"> 
 
-        <header layout="row" layout-align="space-between start" ng-controller="headerController">
+        <header layout="row"  ng-controller="headerController">
+            <md-card flex="10">
+                <img src="images/logo.jpg" class="md-card-image" alt="Logo biscoto, meubles en carton">
+            </md-card>
+            <div layout="column" flex>
+                <div layout="row" layout-align="end center" flex>
+                    <md-button class="md-warn md-icon-button md-hue-2" aria-label="Supprimer">
+                            <md-tooltip md-direction="bottom">Supprimer</md-tooltip>
+                            <md-icon>delete</md-icon>
+                    </md-button>
+                </div>
+                <md-nav-bar md-selected-nav-item="currentNavItem">
+                    <md-nav-item md-nav-click="goto('page1')" name="page1">
+                        évènements
+                    </md-nav-item>
+                    <md-nav-item md-nav-href="#page2" name="page3">Contact & Devis</md-nav-item>
+                    <md-nav-item md-nav-sref="page3" name="page2">Articles</md-nav-item>
+                    <md-nav-item md-nav-sref="app.page4" sref-opts="{reload: true, notify: true}" name="page4">
+                        Créations
+                    </md-nav-item>
+                </md-nav-bar>
+            </div>
+
+
+
             <!--  <div class="logo" id="logo-anim" layout="column" layout-align="center center" ng-mouseover="entered = true" ng-mouseleave="entered = false">
                   <img src="images/logo.jpg" alt="Logo biscoto, meubles en carton"/>
                   <div>
@@ -62,23 +86,23 @@
                       </md-tooltip>
                   </md-button>
               </div>
-  
-          </header>
             -->
+        </header>
 
-            <div ng-view flex="100"></div>
-            <script src="js/libraries/bower_components/angular/angular.min.js"></script>
-            <script src="js/libraries/bower_components/angular-route/angular-route.min.js"></script>
-            <script src="js/libraries/bower_components/moment/min/moment.min.js"></script>
-            <script src="js/libraries/bower_components/moment/locale/fr.js"></script>
-            <script src="js/libraries/bower_components/angular-moment/angular-moment.min.js"></script>
-            <script src="js/libraries/bower_components/angular-animate/angular-animate.min.js"></script>
-            <script src="js/libraries/bower_components/angular-aria/angular-aria.min.js"></script>
-            <script src="js/libraries/bower_components/angular-messages/angular-messages.min.js"></script>
-            <!-- Angular Material Library -->
-            <script src="js/libraries/bower_components/angular-material/angular-material.min.js"></script>
-            <script src="js/app.js"></script>
-            <script src="js/controllers/headerController.js"></script>
+
+        <div ng-view flex="80"></div>
+        <script src="js/libraries/bower_components/angular/angular.min.js"></script>
+        <script src="js/libraries/bower_components/angular-route/angular-route.min.js"></script>
+        <script src="js/libraries/bower_components/moment/min/moment.min.js"></script>
+        <script src="js/libraries/bower_components/moment/locale/fr.js"></script>
+        <script src="js/libraries/bower_components/angular-moment/angular-moment.min.js"></script>
+        <script src="js/libraries/bower_components/angular-animate/angular-animate.min.js"></script>
+        <script src="js/libraries/bower_components/angular-aria/angular-aria.min.js"></script>
+        <script src="js/libraries/bower_components/angular-messages/angular-messages.min.js"></script>
+        <!-- Angular Material Library -->
+        <script src="js/libraries/bower_components/angular-material/angular-material.min.js"></script>
+        <script src="js/app.js"></script>
+        <script src="js/controllers/headerController.js"></script>
 
     </body>
 </html>

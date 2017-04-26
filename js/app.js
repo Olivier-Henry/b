@@ -5,4 +5,12 @@ app.config(function ($routeProvider) {
             .otherwise({redirectTo: '/'});
 });
 
+app.config(function($mdThemingProvider) {
+      $mdThemingProvider.theme('default')
+        .primaryPalette('grey')
+        .warnPalette('red')
+        .accentPalette('brown')
+        .dark();
+    });
+
 
