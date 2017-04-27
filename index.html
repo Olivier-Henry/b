@@ -10,27 +10,29 @@
     </head>
     <body ng-app="ngApp" ng-cloak layout="column"> 
 
-        <header layout="row"  ng-controller="headerController">
+        <header layout="row"  ng-controller="headerController" md-theme="header">
             <md-card flex="10">
                 <img src="images/logo.jpg" class="md-card-image" alt="Logo biscoto, meubles en carton">
             </md-card>
             <div layout="column" flex>
-                <div layout="row" layout-align="end center" flex>
+                <div layout="row" layout-align="end start" flex>
                     <md-button class="md-warn md-icon-button md-hue-2" aria-label="Supprimer">
-                            <md-tooltip md-direction="bottom">Supprimer</md-tooltip>
-                            <md-icon>delete</md-icon>
+                        <md-tooltip md-direction="bottom">Supprimer</md-tooltip>
+                        <md-icon>delete</md-icon>
                     </md-button>
                 </div>
-                <md-nav-bar md-selected-nav-item="currentNavItem">
-                    <md-nav-item md-nav-click="goto('page1')" name="page1">
-                        évènements
-                    </md-nav-item>
-                    <md-nav-item md-nav-href="#page2" name="page3">Contact & Devis</md-nav-item>
-                    <md-nav-item md-nav-sref="page3" name="page2">Articles</md-nav-item>
-                    <md-nav-item md-nav-sref="app.page4" sref-opts="{reload: true, notify: true}" name="page4">
-                        Créations
-                    </md-nav-item>
-                </md-nav-bar>
+                <div layout="row" layout-align="center end" flex>
+                    <md-nav-bar md-selected-nav-item="currentNavItem">
+                        <md-nav-item md-nav-click="goto('page1')" name="page1">
+                            évènements
+                        </md-nav-item>
+                        <md-nav-item md-nav-href="#page2" name="page3">Contact & Devis</md-nav-item>
+                        <md-nav-item md-nav-sref="page3" name="page2">Articles</md-nav-item>
+                        <md-nav-item md-nav-sref="app.page4" sref-opts="{reload: true, notify: true}" name="page4">
+                            Créations
+                        </md-nav-item>
+                    </md-nav-bar>
+                </div>
             </div>
 
 

@@ -10,6 +10,10 @@ app.config(function($mdThemingProvider) {
         .primaryPalette('grey')
         .warnPalette('red')
         .accentPalette('brown')
+              $mdThemingProvider.theme('header')
+        .primaryPalette('grey')
+        .warnPalette('red')
+        .accentPalette('brown')
         .dark();
     });
 
