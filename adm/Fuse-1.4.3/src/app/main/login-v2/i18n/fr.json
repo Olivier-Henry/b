@@ -1,0 +1,18 @@
+{
+    "LOGIN_V2": {
+        "INTRO_TITLE": "Bienvenue !",
+        "INTRO_DESCRIPTION": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ullamcorper nisl erat, vel convallis elit fermentum pellentesque. Sed mollis velit facilisis facilisis viverra.",
+        "TITLE": "Authentification",
+        "DESCRIPTION": "Saisissez vos identitifiants pour vous connecter",
+        "EMAIL": "Email",
+        "PASSWORD": "Mot de passe",
+        "REMEMBER_ME": "Se souvenir de moi",
+        "FORGOT_PASSWORD": "Mot de passe oublié ?",
+        "LOG_IN": "Connection",
+        "ERRORS": {
+            "EMAIL_REQUIRED": "L'email est requis",
+            "EMAIL_MUST_VALID": "L'addresse email saisie est invalide",
+            "PASSWORD_REQUIRED": "Le mot de passe est requis"
+        }
+    }
+}

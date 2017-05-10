@@ -29,7 +29,7 @@ class Furniture extends CI_Controller {
         if (is_array($response)) {
             for ($i = 0; $i < count($response); $i++) {
                 $response[$i]->type = intval($response[$i]->type_id) > 0 ? $this->FurnitureTypeModel->get($response[$i]->type_id)[0] : null;
-                $response[$i]->finish = intval($response[$i]->finish_id) > 0 ? $this->FinishModel->get($response[$i]->finish_id)[0] : null;
+            //    $response[$i]->finish = intval($response[$i]->finish_id) > 0 ? $this->FinishModel->get($response[$i]->finish_id)[0] : null;
                 $response[$i]->pictures = $this->ImageModel->getByFurnitureId($response[$i]->id);
             }
         }

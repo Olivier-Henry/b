@@ -9,7 +9,6 @@ require_once __DIR__ . '/AbstractModel.php';
  */
 class UserModel extends AbstractModel {
 
-    public $login;
     public $password;
     public $email;
     public $firstname;
@@ -22,12 +21,12 @@ class UserModel extends AbstractModel {
     }
 
     public function exist() {
-        $result = $this->db->get_where($this->table, array('login' => $this->login, 'password' => $this->password));
+        $result = $this->db->get_where($this->table, array('email' => $this->email, 'password' => $this->password));
         return $result->result_object();
     }
 
     public function is() {
-        $result = $this->db->get_where($this->table, array('id' => $this->id, 'login' => $this->login));
+        $result = $this->db->get_where($this->table, array('id' => $this->id, 'email' => $this->email));
         return $result->result_object();
     }
     
@@ -39,7 +38,7 @@ class UserModel extends AbstractModel {
         $r = $this->db->get_where($this->table, array('id' => $id))->row_object(0);
         
         $this->id = $r->id;
-        $this->login = $r->login;
+        $this->email = $r->email;
         $this->password = $r->password;
         $this->firstname = $r->firstname;
         $this->lastname = $r->lastname;

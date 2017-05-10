@@ -1,0 +1,142 @@
+<div id="e-commerce-products" class="page-layout carded fullwidth" layout="row">
+
+    <!-- TOP BACKGROUND -->
+    <div class="top-bg md-accent-bg"></div>
+    <!-- / TOP BACKGROUND -->
+
+    <!-- CENTER -->
+    <div class="center" layout="column" flex>
+
+        <!-- CONTENT HEADER -->
+        <div class="header" layout="row" layout-align="space-between center">
+            <div class="white-fg" layout="column" layout-align="start start">
+                <div class="h1" layout="row" layout-align="start center">
+                    <md-icon md-font-icon="icon-cube-outline"></md-icon>
+                    <span translate="EC.FURNITURES">Meubles</span>
+                </div>
+                <div class="product-count secondary-text">
+                    <span translate="EC.TOTAL_FURNITURES">Total meubles:</span>
+                    <span>{{vm.furnitures.length}}</span>
+                </div>
+            </div>
+
+            <div class="search" layout="row" layout-align="start center" flex>
+                <md-icon md-font-icon="icon-magnify" class="white-text icon search-icon"></md-icon>
+                <input id="e-commerce-products-search" class="search-input" type="text" placeholder="Search"
+                       translate translate-attr-placeholder="EC.SEARCH" flex>
+            </div>
+        </div>
+        <!-- / CONTENT HEADER -->
+
+        <!-- CONTENT CARD -->
+        <div class="content-card" layout="column" flex>
+
+            <!-- CONTENT TOOLBAR -->
+
+            <!-- / CONTENT TOOLBAR -->
+
+            <!-- CONTENT -->
+            <div class="content fullpage-datatable" layout="column" flex>
+
+                <md-table-container>
+                    <table md-table  md-progress="promise">
+                        <thead md-head md-order="query.order" md-on-reorder="getDesserts">
+                            <tr md-row>
+                                <th md-column>Image</th>
+                                <th md-column md-order-by="label"><span>Libellé</span></th>
+                                <th md-column>Catégorie</th>
+                                <th md-column md-numeric>Prix</th>
+                                <th md-column md-numeric>Quantité</th>
+                                <th md-column md-numeric>Publié</th>
+                                <th md-column>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody md-body>
+                            <tr md-row ng-repeat="furniture in vm.furnitures">
+                                <td layout="row" layout-align="center center" layout-fill><img class="product-image" ng-src="{{vm.urls.productPictures}}{{furniture.id}}/{{furniture.pictures[0].name}}"></td>
+                                <td md-cell>{{furniture.label}}</td>
+                                <td md-cell>{{furniture.type.label}}</td>
+                                <td md-cell>{{furniture.price | number: 2}}</td>
+                                <td md-cell>{{furniture.stock}}</td>
+                                <td md-cell>{{furniture.published}}</td>
+                                <td md-cell>
+                        <md-button class="edit-button md-icon-button" ng-click="vm.gotoProductDetail(furniture)" aria-label="Détail meuble"
+                                   translate translate-attr-aria-label="EC.PRODUCT_DETAILS">
+                            <md-icon md-font-icon="icon-pencil" class="s16"></md-icon>
+                        </md-button>
+                        </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </md-table-container>
+
+                <!--               
+                               <table class="dataTable row-border hover" datatable="ng" dt-instance="vm.dtInstance"
+                                      dt-options="vm.dtOptions">
+                                   <thead>
+                                       <tr>
+                                           <th class="secondary-text">
+                                               <div class="table-header">
+                                                   <span class="column-title">Image</span>
+                                               </div>
+                                           </th>
+                                           <th class="secondary-text">
+                                               <div class="table-header">
+                                                   <span class="column-title">Libellé</span>
+                                               </div>
+                                           </th>
+                                           <th class="secondary-text">
+                                               <div class="table-header">
+                                                   <span class="column-title">Catégorie</span>
+                                               </div>
+                                           </th>
+                                           <th class="secondary-text">
+                                               <div class="table-header">
+                                                   <span class="column-title">Prix</span>
+                                               </div>
+                                           </th>
+                                           <th class="secondary-text">
+                                               <div class="table-header">
+                                                   <span class="column-title">Quantité</span>
+                                               </div>
+                                           </th>
+                                           <th class="secondary-text">
+                                               <div class="table-header">
+                                                   <span class="column-title">Publié</span>
+                                               </div>
+                                           </th>
+                                           <th class="secondary-text">
+                                               <div class="table-header">
+                                                   <span class="column-title">Actions</span>
+                                               </div>
+                                           </th>
+                                       </tr>
+                                   </thead>
+                                   <tbody>
+                                       <tr ng-repeat="furniture in vm.furnitures">
+                                           <td><img class="product-image" ng-src="{{furniture.picture}}"></td>
+                                           <td>{{furniture.label}}</td>
+                                           <td>{{furniture.type.label}}</td>
+                                           <td>{{furniture.price}}</td>
+                                           <td>{{furniture.stock}}</td>
+                                           <td>{{furniture.published}}</td>
+                                           <td>
+                                               <md-button class="edit-button md-icon-button" ng-click="vm.gotoProductDetail(furniture.id)" aria-label="Détail meuble"
+                                                          translate translate-attr-aria-label="EC.PRODUCT_DETAILS">
+                                                   <md-icon md-font-icon="icon-pencil" class="s16"></md-icon>
+                                               </md-button>
+                                           </td>
+                                       </tr>
+                                   </tbody>
+                               </table>
+                -->
+            </div>
+            <!-- / CONTENT -->
+
+        </div>
+        <!-- / CONTENT CARD -->
+
+    </div>
+    <!-- / CENTER -->
+
+</div>

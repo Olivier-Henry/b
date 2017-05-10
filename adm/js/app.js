@@ -60,6 +60,20 @@ app.config(function ($mdThemingProvider) {
             .accentPalette('grey')
             .warnPalette('red')
             .backgroundPalette('customBackground');
+    
+    var blackMap = $mdThemingProvider.extendPalette('grey', {
+    '900': '#000000',
+    'contrastDefaultColor': 'dark'
+  });
+
+  $mdThemingProvider.definePalette('blackMap', blackMap);
+
+    
+    $mdThemingProvider.theme('navigation')
+            .primaryPalette('brown')
+            .accentPalette('blackMap')
+            .warnPalette('red')
+            .dark();
 });
 
 app.run(function(amMoment, $rootScope, jwtHelper, store, $location) {

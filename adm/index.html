@@ -14,12 +14,18 @@
 
     <body ng-app="ngAdmin" layout="row" ng-cloak>
 
-    <md-sidenav md-component-id="left" class="md-sidenav-left">
+    <md-sidenav md-component-id="left" class="md-sidenav-left" md-theme="navigation">
         <div ng-controller="navController">
-            <md-toolbar class="md-accent" layout-align="center center">
-                <img src="../images/logo.jpg" alt="Logo biscoto, meubles en carton" width="200"/>
+            <md-toolbar  md-colors="::{background: 'navigation-accent-900'}" layout-align="center center" md-whiteframe="2">
+                <img src="../images/biscoto-logo.png"/>
             </md-toolbar>
-            <md-content layout="column">
+            <md-content layout="column" layout-align="stretch">
+                    <md-button class=""  ng-click="go('/types')" aria-label="Types de meubles" layout-fill>
+                        <span flex>Types de meubles</span>
+                        <md-icon>delete</md-icon>
+                    </md-button>
+
+                <!--
                 <md-button ng-click="go('/types')" md-colors="{background: 'primary'}">
                     Type de meubles
                 </md-button>
@@ -47,6 +53,7 @@
                 <md-button ng-click="go('/types')" md-colors="{background: 'primary'}">
                     Type de meubles
                 </md-button>
+                -->
             </md-content>
         </div>
     </md-sidenav>

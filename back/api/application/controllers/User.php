@@ -1,7 +1,8 @@
 <?php
 
 defined('BASEPATH') OR exit('No direct script access allowed');
-
+//header("Access-Control-Allow-Origin: http://localhost:3000");
+//header("Access-Control-Allow-Headers: X-Requested-With");
 /**
  * Description of User
  *
@@ -17,7 +18,7 @@ class User extends CI_Controller {
 
     public function auth() {
 
-        $this->UserModel->login = $this->json->login;
+        $this->UserModel->email = $this->json->email;
         $this->UserModel->password = sha1($this->json->password);
         $user = $this->UserModel->exist();
         if (is_array($user) && count($user) === 1) {
@@ -25,7 +26,7 @@ class User extends CI_Controller {
             $u->iat = time();
             $u->exp = time() + EXP;
             $u->id = $user[0]->id;
-            $u->login = $user[0]->login;
+            $u->email = $user[0]->email;
             $jwt = JWT::encode($u, SECRET_KEY);
 
             echo json_encode(array("code" => 0, "response" => array("token" => $jwt)));

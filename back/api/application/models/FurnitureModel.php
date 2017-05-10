@@ -10,7 +10,7 @@ require_once __DIR__ . '/AbstractModel.php';
 class FurnitureModel extends AbstractModel {
 
     public $type_id;
-    public $finish_id;
+    public $material_id;
     public $published;
     public $price;
     public $stock;
