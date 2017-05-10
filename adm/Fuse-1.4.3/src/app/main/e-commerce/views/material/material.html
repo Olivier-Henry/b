@@ -1,0 +1,83 @@
+<div id="e-commerce-material" class="page-layout simple tabbed" layout="column">
+
+    <!-- HEADER -->
+    <div class="header md-accent-bg" layout="row" layout-align="start center">
+        <div class="white-fg" layout="row" layout-align="start center" flex>
+            <md-button class="goto-products-button md-icon-button" aria-label="Retour aux matières"
+                       ng-click="vm.gotoMaterials()">
+                <md-icon md-font-icon="icon-arrow-left"></md-icon>
+            </md-button>
+
+            <div layout="row" layout-align="start center">
+                <div layout="column" layout-align="start start">
+                    <div class="h2">
+                        {{vm.material.label}}
+                    </div>
+                    <div class="subtitle secondary-text">
+                        <span>Détails de la matière</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <md-button class="md-raised md-background">
+                <span translate="EC.SAVE">SAVE</span>
+            </md-button>
+        </div>
+    </div>
+    <!-- / HEADER -->
+
+    <!-- CONTENT -->
+    <div class="content">
+
+        <md-tabs md-dynamic-height>
+
+            <md-tab>
+                <md-tab-label>
+                    <span translate="EC.BASIC_INFO">Basic Info</span>
+                </md-tab-label>
+
+                <md-tab-body>
+                    <div class="product-detail-form-container md-background-bg md-whiteframe-1dp">
+                        <form>
+                            <md-input-container class="md-block">
+                                <label>Type de matériau</label>
+                                <input type="text" ng-model="vm.material.label">
+                            </md-input-container>
+
+                            <md-input-container class="md-block"  ng-show="vm.types.length">
+                                <label>Caractéristique</label>
+                                <md-select ng-model="vm.material.type"
+                                           md-on-open="vm.onCategoriesSelectorOpen()"
+                                           md-on-close="vm.onCategoriesSelectorClose()" >
+                                    <md-select-header>
+                                        <input type="search" class="md-text"
+                                               ng-model="vm.categoriesSelectFilter" placeholder="Chercher une matière">
+                                    </md-select-header>
+                                    <md-optgroup>
+                                        <md-option ng-value="type.id"
+                                                   ng-repeat="type in vm.types| filter: vm.categoriesSelectFilter">
+                                            {{type.label}}
+                                        </md-option>
+                                    </md-optgroup>
+                                </md-select>
+                            </md-input-container>
+                            <div layout="row" layout-align="end">
+                                <md-button class="md-accent" ng-click="vm.gotoTypes()">
+                                    <md-icon md-font-icon="icon-plus"></md-icon>
+                                    Créer une carastéristique
+                                </md-button>
+                            </div>
+                        </form>
+                    </div>
+                </md-tab-body>
+            </md-tab>
+
+
+        </md-tabs>
+
+    </div>
+    <!-- / CONTENT -->
+
+</div>

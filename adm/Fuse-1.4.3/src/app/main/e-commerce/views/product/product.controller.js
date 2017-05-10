@@ -10,14 +10,27 @@
     function ProductController($document, $state, Product, Material, Furniture, $stateParams, urls)
     {
         var vm = this;
+        vm.materials = [];
         vm.urls = urls;
 
         console.log($stateParams);
         vm.furniture = $stateParams.furniture;
+
+        if (!vm.furniture && $stateParams.id) {
+            Furniture.getOne($stateParams.id)
+                    .then(function(data){
+                        vm.furniture = data[0];
+            });
+        }
+        
+        Material.getAll()
+                .then(function (data) {
+                    vm.materials = data;
+                });
         // Data
         vm.taToolbar = [
-            ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'pre', 'quote','bold', 'italics', 'underline', 'strikeThrough', 'ul', 'ol', 'redo', 'undo', 'clear',
-            'justifyLeft', 'justifyCenter', 'justifyRight', 'indent', 'outdent', 'html', 'insertImage', 'insertLink', 'insertVideo', 'wordcount', 'charcount']
+            ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'pre', 'quote', 'bold', 'italics', 'underline', 'strikeThrough', 'ul', 'ol', 'redo', 'undo', 'clear',
+                'justifyLeft', 'justifyCenter', 'justifyRight', 'indent', 'outdent', 'html', 'insertImage', 'insertLink', 'insertVideo', 'wordcount', 'charcount']
         ];
         vm.product = Product.data;
         vm.categoriesSelectFilter = '';

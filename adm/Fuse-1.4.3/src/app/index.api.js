@@ -208,6 +208,7 @@
                                     .then(
                                             function (data) {
                                                 console.log(data);
+                                                return data.data;
                                             },
                                             function (error) {
 

@@ -56,6 +56,21 @@
                     },
                     bodyClass: 'e-commerce'
                 })
+                .state('app.e-commerce.materials', {
+                    url: '/materials',
+                    views: {
+                        'content@app': {
+                            templateUrl: 'app/main/e-commerce/views/materials/materials.html',
+                            controller: 'MaterialsController as vm'
+                        }
+                    },
+                    resolve: {
+                        Material: function (apiResolver) {
+                            return apiResolver.resolve('generic@create', 'material', true);
+                        }
+                    },
+                    bodyClass: 'e-commerce'
+                })
                 .state('app.e-commerce.products.detail', {
                     url: '/:id',
                     params: {id: null, furniture: null},
@@ -75,6 +90,41 @@
                         },
                         Material: function (apiResolver) {
                             return apiResolver.resolve('generic@create', 'material', true);
+                        }
+                    },
+                    bodyClass: 'e-commerce'
+                })
+                .state('app.e-commerce.materials.detail', {
+                    url: '/:id',
+                    params: {id: null, material: null},
+                    views: {
+                        'content@app': {
+                            templateUrl: 'app/main/e-commerce/views/material/material.html',
+                            controller: 'MaterialController as vm'
+                        }
+                    },
+                    resolve: {
+                        Material: function (apiResolver) {
+                            return apiResolver.resolve('generic@create', 'material', true);
+                        },
+                        Type: function (apiResolver) {
+                            return apiResolver.resolve('generic@create', 'type', true);
+                        }
+                    },
+                    bodyClass: 'e-commerce'
+                })
+                .state('app.e-commerce.type', {
+                    url: '/type/:id',
+                    params: {from: null, id: null, type: null},
+                    views: {
+                        'content@app': {
+                            templateUrl: 'app/main/e-commerce/views/type/type.html',
+                            controller: 'TypeController as vm'
+                        }
+                    },
+                    resolve: {
+                        Type: function (apiResolver) {
+                            return apiResolver.resolve('generic@create', 'type', true);
                         }
                     },
                     bodyClass: 'e-commerce'
@@ -126,6 +176,7 @@
         // Api
         msApiProvider.register('e-commerce.dashboard', ['app/data/e-commerce/dashboard.json']);
         msApiProvider.register('e-commerce.products', ['app/data/e-commerce/products.json']);
+        msApiProvider.register('e-commerce.materials', ['app/data/e-commerce/products.json']);
         msApiProvider.register('e-commerce.product', ['app/data/e-commerce/product.json']);
         msApiProvider.register('e-commerce.orders', ['app/data/e-commerce/orders.json']);
         msApiProvider.register('e-commerce.statuses', ['app/data/e-commerce/statuses.json']);
@@ -146,6 +197,11 @@
         msNavigationServiceProvider.saveItem('e-commerce.products', {
             title: 'Products',
             state: 'app.e-commerce.products'
+        });
+        
+        msNavigationServiceProvider.saveItem('e-commerce.materials', {
+            title: 'Matières',
+            state: 'app.e-commerce.materials'
         });
 
         msNavigationServiceProvider.saveItem('e-commerce.orders', {

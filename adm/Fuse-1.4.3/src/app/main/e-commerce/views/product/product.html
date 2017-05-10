@@ -56,7 +56,7 @@
 
                             <md-input-container class="md-block">
                                 <label translate="EC.MATERIAL">Material</label>
-                                <md-select ng-model="vm.product.categories"
+                                <md-select ng-model="vm.furniture.material"
                                            md-on-open="vm.onCategoriesSelectorOpen()"
                                            md-on-close="vm.onCategoriesSelectorClose()" >
                                     <md-select-header>
@@ -64,9 +64,9 @@
                                                ng-model="vm.categoriesSelectFilter" placeholder="Chercher une matière">
                                     </md-select-header>
                                     <md-optgroup>
-                                        <md-option ng-value="category"
-                                                   ng-repeat="category in vm.product.categories | filter:vm.categoriesSelectFilter">
-                                            {{category}}
+                                        <md-option ng-value="material.id"
+                                                   ng-repeat="material in vm.materials | filter: vm.categoriesSelectFilter">
+                                            {{material.label}}
                                         </md-option>
                                     </md-optgroup>
                                 </md-select>
