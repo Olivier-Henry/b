@@ -113,6 +113,21 @@
                     },
                     bodyClass: 'e-commerce'
                 })
+                .state('app.e-commerce.types', {
+                    url: '/types',
+                    views: {
+                        'content@app': {
+                            templateUrl: 'app/main/e-commerce/views/types/types.html',
+                            controller: 'TypesController as vm'
+                        }
+                    },
+                    resolve: {
+                        Type: function (apiResolver) {
+                            return apiResolver.resolve('generic@create', 'type', true);
+                        }
+                    },
+                    bodyClass: 'e-commerce'
+                })
                 .state('app.e-commerce.type', {
                     url: '/type/:id',
                     params: {from: null, id: null, type: null},
@@ -198,13 +213,18 @@
         });
 
         msNavigationServiceProvider.saveItem('e-commerce.products', {
-            title: 'Products',
+            title: 'Meubles',
             state: 'app.e-commerce.products'
         });
         
         msNavigationServiceProvider.saveItem('e-commerce.materials', {
             title: 'Matières',
             state: 'app.e-commerce.materials'
+        });
+        
+        msNavigationServiceProvider.saveItem('e-commerce.types', {
+            title: 'Caractéristiques',
+            state: 'app.e-commerce.types'
         });
 
         msNavigationServiceProvider.saveItem('e-commerce.orders', {
