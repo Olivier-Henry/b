@@ -125,6 +125,9 @@
                     resolve: {
                         Type: function (apiResolver) {
                             return apiResolver.resolve('generic@create', 'type', true);
+                        },
+                        Attribute: function (apiResolver) {
+                            return apiResolver.resolve('generic@create', 'attribute', true);
                         }
                     },
                     bodyClass: 'e-commerce'
