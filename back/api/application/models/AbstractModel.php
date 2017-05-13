@@ -31,7 +31,8 @@ abstract class AbstractModel extends CI_Model implements InterfaceModel {
     public function save() {
         if ($this->id < 1) {
             $this->insert();
-            return $this->db->insert_id();
+            $this->id = $this->db->insert_id();
+            return $this->id;
         } else {
             $this->update();
             return $this->db->affected_rows();

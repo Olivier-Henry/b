@@ -7,35 +7,55 @@
             .controller('TypeController', TypeController);
 
     /** @ngInject */
-    function TypeController($document, $state, Type, Attribute, $stateParams, urls){
-        
+    function TypeController($document, $state, Type, Attribute, $stateParams, urls) {
+
         var vm = this;
-        
+
         console.log($stateParams);
-        
+
         vm.type = $stateParams.type;
-        vm.attributes = [{}];
-        
-        if(!$stateParams.id && !$stateParams.type){
-            vm.type = {};
+
+        if (!$stateParams.id && !$stateParams.type) {
+            vm.type = {
+                attributes: [{}]
+            };
         }
-        
-        vm.processSaving = function(){
+
+        if ($stateParams.id && !$stateParams.type) {
+            Type.getOne($stateParams.id)
+                    .then(function (data) {
+                        vm.type = data[0];
+                    });
+        }
+
+        vm.processSaving = function () {
             Type.save(vm.type).
-                    then(function(response){
+                    then(function (response) {
                         console.log(response);
-                        if(!vm.type.id){
-                            
-                        }
+
                     });
         };
-        
-        
-        vm.gotoTypes = function(){
-             $state.go('app.e-commerce.materials');
+
+        vm.removeAttribute = function (i) {
+            vm.type.attributes.splice(i, 1);
         };
-        
-        
+
+        vm.addAttribute = function () {
+            vm.type.attributes.push({});
+        };
+
+
+        vm.back = function () {
+            if($stateParams.from){
+                 $state.go($stateParams.from.state, $stateParams.from.params);
+            }else{
+                $state.go('app.e-commerce.types');
+            }
+            
+           
+        };
+
+
     }
-    
+
 })();

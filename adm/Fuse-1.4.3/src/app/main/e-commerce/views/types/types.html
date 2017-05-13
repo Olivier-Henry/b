@@ -50,7 +50,7 @@
                         <tbody md-body>
                             <tr md-row ng-repeat="type in vm.types">
                                 <td md-cell>{{type.label}}</td>
-                                <td md-cell>{{type.total}}</td>
+                                <td md-cell>{{type.attributes.length}}</td>
                                 <td md-cell>
                         <md-button class="edit-button md-icon-button" ng-click="vm.gotoTypeDetail(type)" aria-label="Détail caractéristique">
                             <md-icon md-font-icon="icon-pencil" class="s16"></md-icon>

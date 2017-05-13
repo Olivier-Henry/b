@@ -7,7 +7,7 @@ require_once 'Type.php';
  *
  * @author olivier
  */
-class JWTType extends Type{
+class JWTType extends Type {
 
     public function __construct() {
         parent::__construct();
@@ -33,27 +33,51 @@ class JWTType extends Type{
         $u->exp = time() + EXP;
         $this->jwt = JWT::encode($u, SECRET_KEY);
     }
-    
-     public function save() {
-       
+
+    public function save() {
+
         if ($this->json) {
-            
-            if(!isset($this->json->id)){
+
+            if (!isset($this->json->id)) {
                 $this->json->id = 0;
             }
-            
+
             $this->TypeModel->id = $this->json->id;
             $this->TypeModel->label = $this->json->label;
-            
-             echo json_encode(
-                array(
-                    "code" => 0,
-                    "response" => array(
-                        "token" => $this->jwt,
-                        "type" => $this->TypeModel->save()
+
+            $type = $this->TypeModel->save();
+
+            if (isset($this->json->attributes) && is_array($this->json->attributes)) {
+                $attributes = $this->json->attributes;
+
+                $this->db->trans_begin();
+
+                $deleted = $this->AttributeModel->deleteByType($this->TypeModel->id);
+
+                foreach ($attributes as $key => $attribute) {
+
+                    $this->AttributeModel->id = 0;
+                    $this->AttributeModel->type_id = $this->TypeModel->id;
+                    $this->AttributeModel->label = $attribute->label;
+                    $this->AttributeModel->save();
+                }
+
+                if (!$this->db->trans_status()) {
+                    $this->db->trans_rollback();
+                } else {
+                    $this->db->trans_commit();
+                }
+            }
+
+            echo json_encode(
+                    array(
+                        "code" => 0,
+                        "response" => array(
+                            "token" => $this->jwt,
+                            "type" => $type
+                        )
                     )
-                )
-        );
+            );
         }
     }
 
@@ -61,16 +85,17 @@ class JWTType extends Type{
         if ($this->json) {
             $this->TypeModel->id = $this->json->id;
             $this->TypeModel->label = $this->json->label;
-            
+
             echo json_encode(
-                array(
-                    "code" => 0,
-                    "response" => array(
-                        "token" => $this->jwt,
-                        "type" => $this->TypeModel->delete()
+                    array(
+                        "code" => 0,
+                        "response" => array(
+                            "token" => $this->jwt,
+                            "type" => $this->TypeModel->delete()
+                        )
                     )
-                )
-        );
+            );
         }
     }
+
 }

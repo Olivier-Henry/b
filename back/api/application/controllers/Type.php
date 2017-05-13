@@ -13,9 +13,17 @@ class Type extends CI_Controller{
         parent::__construct();
         $this->json = json_decode($this->security->xss_clean($this->input->raw_input_stream));
         $this->load->model('TypeModel');
+        $this->load->model('AttributeModel');
     }
 
     public function get($id = 0) {
-        echo json_encode($this->TypeModel->get(intval($id)));
+        
+        $types = $this->TypeModel->get(intval($id));
+        
+        foreach ($types as $k => $type){
+            $type->attributes = $this->AttributeModel->getByType($type->id);
+        }
+        
+        echo json_encode($types);
     }
 }

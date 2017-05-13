@@ -4,7 +4,7 @@
     <div class="header md-accent-bg" layout="row" layout-align="start center">
         <div class="white-fg" layout="row" layout-align="start center" flex>
             <md-button class="goto-products-button md-icon-button" aria-label="Retour aux matières"
-                       ng-click="vm.gotoMaterials()">
+                       ng-click="vm.back()">
                 <md-icon md-font-icon="icon-arrow-left"></md-icon>
             </md-button>
 
@@ -56,10 +56,21 @@
                 <md-tab-body>
                     <div class="product-detail-form-container md-background-bg md-whiteframe-1dp">
                         <form>
-                            <md-input-container class="md-block" ng-repeat="attribute in vm.attributes">
+                            <div layout="row" ng-repeat="attribute in vm.type.attributes track by $index">
+                            <md-input-container class="md-block" flex>
                                 <label>Valeur de l'attribut</label>
                                 <input type="text" ng-model="attribute.label">
                             </md-input-container>
+                                <md-button class="md-warn" ng-click="vm.removeAttribute($index)" aria-label="Supprimer un attribut">
+                                    <md-icon md-font-icon="icon-trash"></md-icon>
+                                </md-button>
+                            </div>
+                             <div layout="row" layout-align="end">
+                                <md-button class="md-accent" ng-click="vm.addAttribute()" aria-label="Ajouter un attribut">
+                                    <md-icon md-font-icon="icon-plus"></md-icon>
+                                    Ajouter un attribut
+                                </md-button>
+                            </div>
                         </form>
                     </div>
                 </md-tab-body>
