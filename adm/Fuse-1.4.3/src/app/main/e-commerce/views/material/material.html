@@ -21,8 +21,9 @@
         </div>
 
         <div>
-            <md-button class="md-raised md-background">
-                <span translate="EC.SAVE">SAVE</span>
+            <md-button class="md-background-fg" ng-click="vm.save()">
+                <md-icon md-font-icon="icon-data"></md-icon>
+                Sauvegarder
             </md-button>
         </div>
     </div>
@@ -46,27 +47,27 @@
                                 <input type="text" ng-model="vm.material.label">
                             </md-input-container>
 
-                            <md-input-container class="md-block"  ng-show="vm.types.length">
+                            <md-input-container class="md-block" ng-repeat="materialType in vm.material.types">
                                 <label>Caractéristique</label>
-                                <md-select ng-model="vm.material.type"
+                                <md-select ng-model="vm.material.types[$index].type_id"
                                            md-on-open="vm.onCategoriesSelectorOpen()"
                                            md-on-close="vm.onCategoriesSelectorClose()" >
                                     <md-select-header>
                                         <input type="search" class="md-text"
-                                               ng-model="vm.categoriesSelectFilter" placeholder="Chercher une matière">
+                                               ng-model="vm.categoriesSelectFilter[$index]" placeholder="Chercher une matière">
                                     </md-select-header>
                                     <md-optgroup>
                                         <md-option ng-value="type.id"
-                                                   ng-repeat="type in vm.types| filter: vm.categoriesSelectFilter">
+                                                   ng-repeat="type in vm.types| filter: vm.categoriesSelectFilter[$index]">
                                             {{type.label}}
                                         </md-option>
                                     </md-optgroup>
                                 </md-select>
                             </md-input-container>
                             <div layout="row" layout-align="end">
-                                <md-button class="md-accent" ng-click="vm.gotoTypes()">
+                                <md-button class="md-accent" ng-click="vm.addType()">
                                     <md-icon md-font-icon="icon-plus"></md-icon>
-                                    Créer une carastéristique
+                                    Ajouter une carastéristique
                                 </md-button>
                             </div>
                         </form>

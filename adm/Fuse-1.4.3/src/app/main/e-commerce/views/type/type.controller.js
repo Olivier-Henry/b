@@ -7,7 +7,7 @@
             .controller('TypeController', TypeController);
 
     /** @ngInject */
-    function TypeController($document, $state, Type, Attribute, $stateParams, urls) {
+    function TypeController($document, $state, Type, $stateParams, urls) {
 
         var vm = this;
 

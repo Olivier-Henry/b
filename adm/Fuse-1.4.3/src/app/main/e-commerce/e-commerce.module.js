@@ -39,7 +39,8 @@
                             return msApi.resolve('e-commerce.dashboard@get');
                         }
                     },
-                    bodyClass: 'ecommerce'
+                    bodyClass: 'ecommerce',
+                    requiresLogin: true
                 })
                 .state('app.e-commerce.products', {
                     url: '/products',
@@ -54,7 +55,8 @@
                             return apiResolver.resolve('generic@create', 'furniture', true);
                         }
                     },
-                    bodyClass: 'e-commerce'
+                    bodyClass: 'e-commerce',
+                    requiresLogin: true
                 })
                 .state('app.e-commerce.materials', {
                     url: '/materials',
@@ -69,7 +71,8 @@
                             return apiResolver.resolve('generic@create', 'material', true);
                         }
                     },
-                    bodyClass: 'e-commerce'
+                    bodyClass: 'e-commerce',
+                    requiresLogin: true
                 })
                 .state('app.e-commerce.products.detail', {
                     url: '/:id',
@@ -92,7 +95,8 @@
                             return apiResolver.resolve('generic@create', 'material', true);
                         }
                     },
-                    bodyClass: 'e-commerce'
+                    bodyClass: 'e-commerce',
+                    requiresLogin: true
                 })
                 .state('app.e-commerce.materials.detail', {
                     url: '/:id',
@@ -111,7 +115,8 @@
                             return apiResolver.resolve('generic@create', 'type', true);
                         }
                     },
-                    bodyClass: 'e-commerce'
+                    bodyClass: 'e-commerce',
+                    requiresLogin: true
                 })
                 .state('app.e-commerce.types', {
                     url: '/types',
@@ -126,7 +131,8 @@
                             return apiResolver.resolve('generic@create', 'type', true);
                         }
                     },
-                    bodyClass: 'e-commerce'
+                    bodyClass: 'e-commerce',
+                    requiresLogin: true
                 })
                 .state('app.e-commerce.type', {
                     url: '/type/:id',
@@ -140,12 +146,10 @@
                     resolve: {
                         Type: function (apiResolver) {
                             return apiResolver.resolve('generic@create', 'type', true);
-                        },
-                        Attribute: function (apiResolver) {
-                            return apiResolver.resolve('generic@create', 'attribute', true);
                         }
                     },
-                    bodyClass: 'e-commerce'
+                    bodyClass: 'e-commerce',
+                    requiresLogin: true
                 })
                 .state('app.e-commerce.orders', {
                     url: '/orders',
@@ -165,7 +169,8 @@
                             return msApi.resolve('e-commerce.statuses@get');
                         }
                     },
-                    bodyClass: 'e-commerce'
+                    bodyClass: 'e-commerce',
+                    requiresLogin: true
                 })
                 .state('app.e-commerce.orders.detail', {
                     url: '/:id',
@@ -185,7 +190,8 @@
                             return msApi.resolve('e-commerce.statuses@get');
                         }
                     },
-                    bodyClass: 'e-commerce'
+                    bodyClass: 'e-commerce',
+                    requiresLogin: true
                 });
 
         // Translation
@@ -216,12 +222,12 @@
             title: 'Meubles',
             state: 'app.e-commerce.products'
         });
-        
+
         msNavigationServiceProvider.saveItem('e-commerce.materials', {
             title: 'Matières',
             state: 'app.e-commerce.materials'
         });
-        
+
         msNavigationServiceProvider.saveItem('e-commerce.types', {
             title: 'Caractéristiques',
             state: 'app.e-commerce.types'

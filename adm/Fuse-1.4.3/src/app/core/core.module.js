@@ -15,6 +15,6 @@
                 'pascalprecht.translate',
                 'ui.router',
                 'angular-jwt',
-                'angular-storage',
+                'angular-storage'
             ]);
 })();

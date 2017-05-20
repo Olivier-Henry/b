@@ -5,7 +5,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #3C4252;
+    background-color: rgb(45,50,62);
     z-index: 99999;
 
     &.ng-leave {
@@ -30,13 +30,7 @@
         height: 96px;
         line-height: 96px;
         margin: 0 auto;
-        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-        font-size: 56px;
-        text-align: center;
-        border-radius: 2px;
-        background-color: #039BE5;
         color: #FFFFFF;
-        box-shadow: 0 2px 14px 0 rgba(0, 0, 0, 0.22);
     }
 
     .spinner-wrapper {

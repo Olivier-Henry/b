@@ -14,7 +14,7 @@
                 }
             },
             accent    : {
-                name: 'light-blue',
+                name: 'bisco-accent',
                 hues: {
                     'default': '600',
                     'hue-1'  : '400',
@@ -78,7 +78,7 @@
                 }
             },
             accent    : {
-                name: 'teal',
+                name: 'bisco-accent',
                 hues: {
                     'default': '500',
                     'hue-1'  : '400',

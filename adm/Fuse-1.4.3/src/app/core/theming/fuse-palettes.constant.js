@@ -45,10 +45,32 @@
                 'contrastDarkColors': '50 100 200 A100',
                 'contrastStrongLightColors': '300 400'
             }
+        },
+        {
+            name: 'bisco-accent',
+            options: {
+                '50': 'e3d1c0',
+                '100': 'ccaa8b',
+                '200': 'bb8e64',
+                '300': '956a42',
+                '400': '805b38',
+                '500': '6b4c2f',
+                '600': '563d26',
+                '700': '402e1c',
+                '800': '2b1f13',
+                '900': '16100a',
+                'A100': 'efcbaa',
+                'A200': 'df9753',
+                'A400': '9e652f',
+                'A700': '815832',
+                'contrastDefaultColor': 'light',
+                'contrastDarkColors': '50 100 200 A100 A200',
+                'contrastStrongLightColors': '300 400'
+            }
         }
     ];
 
     angular
-        .module('app.core')
-        .constant('fusePalettes', fusePalettes);
+            .module('app.core')
+            .constant('fusePalettes', fusePalettes);
 })();

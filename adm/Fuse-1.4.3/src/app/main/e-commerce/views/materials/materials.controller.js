@@ -17,12 +17,15 @@
         vm.materials = Material.getAll()
                 .then(function(response){
                     vm.materials = response;   
-                    console.log(vm.materials);
         });
 
 
         // Methods
         vm.gotoMaterialDetail = gotoMaterialDetail;
+        
+        vm.add = function(){
+             $state.go('app.e-commerce.materials.detail', {id: null, material: null});
+        };
 
         //////////
 
@@ -35,6 +38,8 @@
         {
             $state.go('app.e-commerce.materials.detail', {id: material.id, material: material});
         }
+        
+      
     }
 })();
 

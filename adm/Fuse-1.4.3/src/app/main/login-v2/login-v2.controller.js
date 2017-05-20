@@ -7,11 +7,13 @@
             .controller('LoginV2Controller', LoginV2Controller);
 
     /** @ngInject */
-    function LoginV2Controller(api, store, $state)
+    function LoginV2Controller(api, store, $state, urls)
     {
 
 
         this.user = {};
+        
+        this.urls = urls;
 
         this.checkCredentials = function () {
             this.user = api.login.auth(this.user)

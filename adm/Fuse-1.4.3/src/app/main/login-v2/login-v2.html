@@ -1,7 +1,7 @@
-<div id="login-v2" layout="row" layout-align="start">
+<div id="login-v2" layout="row" layout-align="start" md-theme="tealTheme">
     <div id="login-v2-intro" flex hide show-gt-sm>
-        <div class="logo md-accent-bg">
-            <span>F</span>
+        <div class="logo">
+            <img ng-src="{{vm.urls.pictures}}biscoto-logo.png">
         </div>
         <div class="title" translate="LOGIN_V2.INTRO_TITLE">
             Welcome to the FUSE!
@@ -14,17 +14,16 @@
 
     <div id="login-v2-form-wrapper" class="flex-scrollable md-whiteframe-8dp" ms-scroll>
         <div id="login-v2-form">
-            <div class="logo md-accent-bg" hide-gt-sm>
-                <span>F</span>
+            <div class="logo" hide-gt-md>
+                <img ng-src="{{vm.urls.pictures}}biscoto-logo.png">
             </div>
 
             <div class="title" translate="LOGIN_V2.TITLE">Log in to your account</div>
             <div class="description" translate="LOGIN_V2.DESCRIPTION">Sed mollis velit facilisis facilisis viverra</div>
 
             <form name="loginForm" novalidate ng-submit="vm.checkCredentials()">
-                <md-input-container class="md-block" md-no-float>
+                <md-input-container class="md-block">
                     <input type="email" name="email" ng-model="vm.user.email" placeholder="Email"
-                           translate translate-attr-placeholder="LOGIN_V2.EMAIL"
                            ng-pattern="/^.+@.+\..+$/" required>
                     <div ng-messages="loginForm.email.$error" role="alert" multiple>
                         <div ng-message="required">
@@ -36,9 +35,8 @@
                     </div>
                 </md-input-container>
 
-                <md-input-container class="md-block" md-no-float>
+                <md-input-container class="md-block">
                     <input type="password" name="password" ng-model="vm.user.password" placeholder="Password"
-                           translate translate-attr-placeholder="LOGIN_V2.PASSWORD"
                            required>
                     <div ng-messages="loginForm.password.$error" role="alert">
                         <div ng-message="required">
@@ -64,7 +62,7 @@
                 </md-button>
             </form>
 
-            
+
         </div>
     </div>
 </div>

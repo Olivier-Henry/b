@@ -16,6 +16,12 @@ class Material extends CI_Controller{
     }
 
     public function get($id = 0) {
-        echo json_encode($this->MaterialModel->get(intval($id)));
+        $materials = $this->MaterialModel->get(intval($id));
+        
+        foreach ($materials as $key => $material) {
+            $material->types = $this->MaterialModel->getTypes($material->id);
+        }
+        
+        echo json_encode($materials);
     }
 }
